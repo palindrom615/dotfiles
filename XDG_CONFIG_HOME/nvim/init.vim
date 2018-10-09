@@ -37,6 +37,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'fatih/vim-go'
+Plug 'dag/vim-fish'
 
 "rails
 Plug 'tpope/vim-rails'
