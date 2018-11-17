@@ -4,7 +4,6 @@ if type nvim > /dev/null 2>&1
 	alias vim "nvim"
 end
 
-set -x PATH ~/.yarn/bin $PATH
 set -x PATH ~/.local/bin $PATH
 
 set fish_term24bit 1

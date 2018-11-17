@@ -1,4 +1,4 @@
-if type rustup > /dev/null 2>&1
+if command -sq rustup
 	set -x PATH $HOME/.cargo/bin $PATH
 end
 
