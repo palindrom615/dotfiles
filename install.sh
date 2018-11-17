@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
-BASEDIR=$(realpath $(dirname "$0"))
+REPODIR=$(realpath $(dirname "$0"))
 
-ln -s $BASEDIR/XDG_CONFIG_HOME/* $HOME/.config
+ln -s $REPODIR/XDG_CONFIG_HOME/* $HOME/.config
+ln -s $REPODIR/HOME/.[!.]* $HOME
+
