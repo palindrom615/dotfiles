@@ -1,6 +1,5 @@
 alias dropbox "python2 /home/palindrom615/dropbox.py"
 if type nvim > /dev/null 2>&1
-	alias vi "nvim"
 	alias vim "nvim"
 end
 
