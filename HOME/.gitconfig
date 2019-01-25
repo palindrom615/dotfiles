@@ -1,3 +1,7 @@
+# This is Git's per-user configuration file.
 [user]
-	email = palindrom615@hanmail.net
-	name = palindrom615
+# Please adapt and uncomment the following lines:
+name = Jang Whemoon
+email = palindrom615@hanmail.net
+[credential]
+	helper = store
