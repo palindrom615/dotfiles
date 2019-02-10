@@ -1,2 +1,2 @@
-alias python "/usr/bin/python3"
-alias pip "/usr/bin/pip3"
+alias python "python3"
+alias pip "pip3"
