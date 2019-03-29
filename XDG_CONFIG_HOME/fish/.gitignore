@@ -1,3 +1,10 @@
-fishd*
+fish_variables
+
+# for oh-my-fish
 conf.d/omf.fish
-functions/fish_prompt.fish
+
+# for fisher
+fisher/*
+!fisher/fishfile
+functions/fisher.fish
+
