@@ -39,6 +39,8 @@ Plug 'Quramy/tsuquyomi'
 Plug 'fatih/vim-go'
 Plug 'dag/vim-fish'
 
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
 "rails
 Plug 'tpope/vim-rails'
 
