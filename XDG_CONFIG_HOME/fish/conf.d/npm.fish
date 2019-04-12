@@ -1,4 +1,4 @@
 if command -sq npm
-	set -x PATH $PATH ~/.npm-global/bin
+	set -x PATH (npm get prefix)/bin $PATH
 end
 
