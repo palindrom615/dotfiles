@@ -5,5 +5,8 @@ name = Jang Whemoon
 email = palindrom615@gmail.com
 [credential]
 	helper = store
+[include]
+	path = ~/Secrets/.gitconfig
 [includeIf "gitdir:~/Works/"]
 	path = ~/Works/.gitconfig
+
