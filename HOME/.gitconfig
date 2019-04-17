@@ -6,4 +6,4 @@ email = palindrom615@gmail.com
 [credential]
 	helper = store
 [includeIf "gitdir:~/Works/"]
-	path = ~/.work/.gitconfig
+	path = ~/Works/.gitconfig
