@@ -22,6 +22,8 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='gruvbox'
 
+Plug 'editorconfig/editorconfig-vim'
+
 " language server support
 Plug 'w0rp/ale'
 let g:ale_completion_enabled = 1
