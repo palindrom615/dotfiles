@@ -5,9 +5,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'junegunn/vim-easy-align'
 
-Plug 'scrooloose/nerdtree' 
+Plug 'scrooloose/nerdtree'
 " turn on Nerd tree when vim turned on
-"autocmd vimenter * NERDTree | vertical resize 15 | wincmd p
+autocmd vimenter * NERDTree | vertical resize 15 | wincmd p
 map <C-n> :NERDTreeToggle<CR>
 " Nerdtree behavior
 let NERDTreeHighlightCursorline=1
@@ -22,30 +22,15 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='gruvbox'
 
-Plug 'vim-syntastic/syntastic'
-let g:syntastic_check_on_open=1
+" language server support
+Plug 'w0rp/ale'
+let g:ale_completion_enabled = 1
+" Error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
 
-"syntax
-Plug 'rust-lang/rust.vim'
-let g:rustfmt_autosave=1
-
-Plug 'elzr/vim-json'
-
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'hdima/python-syntax'
-Plug 'plasticboy/vim-markdown'
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
-Plug 'fatih/vim-go'
-Plug 'dag/vim-fish'
-
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-
-"rails
-Plug 'tpope/vim-rails'
-
-" elixir
-Plug 'elixir-editors/vim-elixir'
+" Enable integration with airline.
+let g:airline#extensions#ale#enabled = 1
 
 "colorschemes
 Plug 'prognostic/plasticine'
@@ -91,7 +76,6 @@ color gruvbox
 "
 "
 set foldmethod=syntax
-set nofoldenable
 set nofoldenable
 set foldlevel=2
 
