@@ -2,7 +2,7 @@
 
 # macOS does not have coreutils out-of-box
 realpath() {
-    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+	[[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
 }
 
 REPODIR=$(realpath $(dirname "$0"))
