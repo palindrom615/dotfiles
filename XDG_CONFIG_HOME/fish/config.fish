@@ -24,3 +24,4 @@ for file in $fisher_path/conf.d/*.fish
 	builtin source $file 2> /dev/null
 end
 
+status --is-login; and status --is-interactive; and exec byobu-launcher
