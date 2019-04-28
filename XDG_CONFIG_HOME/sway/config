@@ -18,7 +18,7 @@ set $right l
 set $term tilix
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | dmenu | xargs swaymsg exec
+set $menu rofi -show run | xargs swaymsg exec
 #set $menu dmenu | xargs swaymsg exec
 
 ### Output configuration
@@ -36,11 +36,11 @@ output * bg /usr/share/backgrounds/f29/default/normalish/f29.png fill
 #
 # Example configuration:
 #
-#exec swayidle \
-#    timeout 300 'swaylock -c 000000' \
-#    timeout 600 'swaymsg "output * dpms off"' \
-#       resume 'swaymsg "output * dpms on"' \
-#    before-sleep 'swaylock -c 000000'
+exec swayidle \
+	timeout 300 'swaylock -c 000000' \
+	timeout 600 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -55,6 +55,11 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 	tap enabled
 	natural_scroll enabled
 	middle_emulation enabled
+	scroll_method two_finger
+}
+
+input "1204:61199:HID_Keyboard_HID_Keyboard" {
+	xkb_options ctrl:swapcaps
 }
 input "1:1:AT_Translated_Set_2_keyboard" {
 	xkb_options ctrl:swapcaps
@@ -176,6 +181,16 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 	# Show the next scratchpad window or hide the focused scratchpad window.
 	# If there are multiple scratchpad windows, this command cycles through them.
 	bindsym $mod+minus scratchpad show
+
+#
+# Special Keys:
+#
+	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+	bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+	bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+	bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+	bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+	bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 #
 # Resizing containers:
 #
@@ -206,17 +221,18 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-	position top
+	# position top
 
 	# When the status_command prints a new line to stdout, swaybar updates.
 	# The default just shows the current date and time.
-	status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+	#status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+	swaybar_command waybar
 
-	colors {
-		statusline #ffffff
-		background #323232
-		inactive_workspace #32323200 #32323200 #5c5c5c
-	}
+	# colors {
+	#	statusline #ffffff
+	#	background #323232
+	#	inactive_workspace #32323200 #32323200 #5c5c5c
+	# }
 	font pango:Iosevka
 }
 
@@ -224,3 +240,14 @@ include /etc/sway/config.d/*
 
 #font pango:roboto-regular
 font pango:Iosevka
+
+#
+# Border Style:
+#
+default_border none
+smart_borders on
+
+smart_gaps on
+gaps outer 10
+gaps inner 10
+
