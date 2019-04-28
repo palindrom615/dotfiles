@@ -38,7 +38,7 @@ output * bg /usr/share/backgrounds/f29/default/normalish/f29.png fill
 #
 exec swayidle \
 	timeout 300 'swaylock -c 000000' \
-	timeout 600 'swaymsg "output * dpms off"' \
+	timeout 600 'systemctl hybrid-sleep' \
 	resume 'swaymsg "output * dpms on"' \
 	before-sleep 'swaylock -c 000000'
 #
