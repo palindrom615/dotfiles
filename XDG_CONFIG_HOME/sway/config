@@ -16,9 +16,10 @@ set $right l
 # Your preferred terminal emulator
 #set $term urxvt256c-ml
 set $term tilix
+
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu rofi -show run | xargs swaymsg exec
+set $menu rofi -show combi -combi-modi "drun,run" -modi combi | xargs swaymsg exec
 #set $menu dmenu | xargs swaymsg exec
 
 ### Output configuration
