@@ -25,7 +25,7 @@ set $menu rofi -show combi -combi-modi "drun,run" -modi combi | xargs swaymsg ex
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/f29/default/normalish/f29.png fill
+output * bg /usr/share/backgrounds/f30/default/wide/f30.png fill
 #
 # Example configuration:
 #
