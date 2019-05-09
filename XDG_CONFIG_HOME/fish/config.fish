@@ -23,5 +23,3 @@ set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_com
 for file in $fisher_path/conf.d/*.fish
 	builtin source $file 2> /dev/null
 end
-
-status --is-login; and status --is-interactive; and exec byobu-launcher
