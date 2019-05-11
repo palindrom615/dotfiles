@@ -7,7 +7,7 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'scrooloose/nerdtree'
 " turn on Nerd tree when vim turned on
-autocmd vimenter * NERDTree | vertical resize 15 | wincmd p
+" autocmd vimenter * NERDTree | vertical resize 15 | wincmd p
 map <C-n> :NERDTreeToggle<CR>
 " Nerdtree behavior
 let NERDTreeHighlightCursorline=1

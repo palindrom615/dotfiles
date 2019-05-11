@@ -1,4 +1,4 @@
-alias dropbox "python2 /home/palindrom615/dropbox.py"
+alias dropbox "/home/palindrom615/dropbox.py"
 if type nvim > /dev/null 2>&1
 	alias vim "nvim"
 end
@@ -23,3 +23,4 @@ set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_com
 for file in $fisher_path/conf.d/*.fish
 	builtin source $file 2> /dev/null
 end
+
