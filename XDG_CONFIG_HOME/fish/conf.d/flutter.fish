@@ -1,3 +1,3 @@
-if test -d $HOME/.local/share 
+if [ -d $HOME/.local/share/flutter ]
 	set -x PATH $HOME/.local/share/flutter/bin $PATH
 end

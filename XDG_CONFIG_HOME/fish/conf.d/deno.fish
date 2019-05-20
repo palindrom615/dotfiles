@@ -1,3 +1,3 @@
-if test -d ~/.deno 
+if [ -d ~/.deno ]
 	set -x PATH ~/.deno/bin $PATH
 end
