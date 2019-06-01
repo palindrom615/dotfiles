@@ -10,3 +10,8 @@ email = palindrom615@gmail.com
 [includeIf "gitdir:~/Works/"]
 	path = ~/Works/.gitconfig
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
