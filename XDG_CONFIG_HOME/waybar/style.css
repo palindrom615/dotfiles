@@ -1,13 +1,13 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-family: Iosevka, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
     min-height: 0;
 }
 
 window#waybar {
-    background: rgba(43, 48, 59, 0.5);
+    background: rgba(43, 48, 59, 0.3);
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
     color: #ffffff;
     margin: 10px;
@@ -40,7 +40,8 @@ window#waybar.hidded {
 }
 
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
-    padding: 0 10px;
+    border-right: 1px dashed whitesmoke;
+    padding: 0 5px;
     margin: 0 0;
 }
 
