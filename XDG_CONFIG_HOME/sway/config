@@ -39,11 +39,11 @@ output DP-4 pos 1920 0
 # Example configuration:
 #
 exec swayidle \
-	timeout 300 'betterlockscreen -l dimblur' \
-	timeout 600 'systemctl hybrid-sleep' \
+	timeout 300 'swaylock' \
+	timeout 600 'systemctl suspend' \
 	resume 'swaymsg "output * dpms on"' \
-	before-sleep 'betterlockscreen -l dimblur'
-bindsym $mod+Shift+Ctrl+l exec betterlockscreen -l dimblur
+	before-sleep 'swaylock'
+bindsym $mod+Shift+Ctrl+l exec swaylock
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when

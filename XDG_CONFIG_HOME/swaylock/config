@@ -1,0 +1,4 @@
+ignore-empty-password
+daemonize
+image=$HOME/.config/sway/wp.jpg
+font=Iosevka     
