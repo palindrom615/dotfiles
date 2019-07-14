@@ -24,3 +24,7 @@ for file in $fisher_path/conf.d/*.fish
 	builtin source $file 2> /dev/null
 end
 
+for file in /etc/profile.d/*.sh
+	bass source $file
+end
+
