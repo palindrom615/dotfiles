@@ -1,4 +1,4 @@
 if [ -d $HOME/.cargo ]
-	set -x PATH $HOME/.cargo/bin $PATH
+	add_path $HOME/.cargo/bin
 end
 

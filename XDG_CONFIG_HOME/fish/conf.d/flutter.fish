@@ -1,3 +1,3 @@
 if [ -d $HOME/.local/share/flutter ]
-	set -x PATH $HOME/.local/share/flutter/bin $PATH
+	add_path $HOME/.local/share/flutter/bin
 end

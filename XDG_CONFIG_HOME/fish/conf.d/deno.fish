@@ -1,3 +1,3 @@
 if [ -d ~/.deno ]
-	set -x PATH ~/.deno/bin $PATH
+	add_path ~/.deno/bin
 end

@@ -1,4 +1,4 @@
 if command_exist npm
-	set -x PATH (npm get prefix)/bin $PATH
+	add_path (npm get prefix)/bin
 end
 
