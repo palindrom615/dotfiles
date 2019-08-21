@@ -1,3 +1,1 @@
-if [ -d ~/.deno ]
-	add_path ~/.deno/bin
-end
+add_path $HOME/.deno/bin
