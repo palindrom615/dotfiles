@@ -1,0 +1,1 @@
+add_path $HOME/.local/share/go/bin
