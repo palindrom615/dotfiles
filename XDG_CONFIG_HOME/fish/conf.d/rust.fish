@@ -1,4 +1,1 @@
-if [ -d $HOME/.cargo ]
-	add_path $HOME/.cargo/bin
-end
-
+add_path $HOME/.cargo/bin
