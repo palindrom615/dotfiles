@@ -3,6 +3,10 @@
 
 New-Item -Path ~\.config -ItemType directory
 
+Get-ChildItem $PSScriptRoot\APPDATA | ForEach-Object -Process {
+	New-Item -Path $env:APPDATA -Name $_.Name -ItemType symboliclink -Value $_.FullName
+}
+
 Get-ChildItem $PSScriptRoot\XDG_CONFIG_HOME | ForEach-Object -Process {
 	New-Item -Path ~\.config -Name $_.Name -ItemType symboliclink -Value $_.FullName
 }
