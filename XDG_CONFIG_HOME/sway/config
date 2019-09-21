@@ -24,7 +24,8 @@ set $menu rofi -show combi -combi-modi "drun,run" -modi combi | xargs swaymsg ex
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.config/sway/wp.jpg fill
+#output * bg ./wallpapers/48454.jpg fill
+exec oguri
 #
 # Example configuration:
 #
@@ -52,7 +53,7 @@ bindsym $mod+Shift+Ctrl+l exec swaylock
 #
 # Example configuration:
 #
-input "1739:0:Synaptics_TM3288-011" {
+input "2:7:SynPS/2_Synaptics_TouchPad" {
 	dwt enabled
 	tap enabled
 	natural_scroll enabled
@@ -257,3 +258,4 @@ gaps outer 10
 gaps inner 10
 
 exec ibus-daemon -drx
+exec mako
