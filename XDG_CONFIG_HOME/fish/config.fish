@@ -21,3 +21,5 @@ if status --is-login
 	end
 end
 
+eval (starship init fish)
+
