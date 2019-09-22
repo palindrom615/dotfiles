@@ -1,5 +1,3 @@
-alias dropbox "/home/palindrom615/dropbox.py"
-
 set fish_term24bit 1
 
 ## fisher install
