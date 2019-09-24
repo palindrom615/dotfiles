@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term tilix
+set $term alacritty
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
@@ -40,7 +40,7 @@ output DP-3 pos 0 0 transform 90
 #
 exec swayidle \
 	timeout 600 'swaylock' \
-	timeout 1200 'systemctl suspend' \
+	timeout 1200 'systemctl hybrid-sleep' \
 	resume 'swaymsg "output * dpms on"' \
 	before-sleep 'swaylock'
 bindsym $mod+Shift+Ctrl+l exec swaylock
@@ -253,9 +253,9 @@ font pango:Iosevka
 default_border none
 smart_borders on
 
-smart_gaps on
-gaps outer 10
-gaps inner 10
+#smart_gaps on
+#gaps outer 10
+#gaps inner 10
 
 exec ibus-daemon -drx
 exec mako
