@@ -24,8 +24,8 @@ set $menu rofi -show combi -combi-modi "drun,run" -modi combi | xargs swaymsg ex
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg ./wallpapers/48454.jpg fill
-exec oguri
+output * bg wp.jpg fit #000000
+
 #
 # Example configuration:
 #
@@ -253,9 +253,9 @@ font pango:Iosevka
 default_border none
 smart_borders on
 
-#smart_gaps on
-#gaps outer 10
-#gaps inner 10
+smart_gaps on
+gaps outer 5 
+gaps inner 5 
 
 exec ibus-daemon -drx
 exec mako
