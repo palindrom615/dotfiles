@@ -239,13 +239,13 @@ bar {
 	#	background #323232
 	#	inactive_workspace #32323200 #32323200 #5c5c5c
 	# }
-	font pango:Iosevka
+	font pango:"Cascadia Code"
 }
 
 include /etc/sway/config.d/*
 
 #font pango:roboto-regular
-font pango:Iosevka
+font pango:"Cascadia Code"
 
 #
 # Border Style:
