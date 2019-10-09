@@ -3,10 +3,9 @@
 ignore-empty-password
 daemonize
 #image=$HOME/.config/sway/wp.jpg
-#font=Iosevka     
 #color=000000a0
 screenshots
 clock
 effect-blur=8x8
-effect-scale=10000000
-effect-greyscale
+effect-scale=100
+#effect-greyscale

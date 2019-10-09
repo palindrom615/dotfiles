@@ -1,16 +1,18 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Iosevka, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Cascadia Code", sans-serif;
     font-size: 13px;
     min-height: 0;
 }
 
 window#waybar {
-    background: rgba(43, 48, 59, 0.3);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    /* background: rgba(43, 48, 59, 1);
+    border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+    background:rgba(0, 0, 0, 0.5);
     color: #ffffff;
     margin: 10px;
+    box-shadow: 0 10px 5px black;
 }
 
 window#waybar.hidded {
@@ -46,7 +48,7 @@ window#waybar.hidded {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: #000;
 }
 
 #battery {
