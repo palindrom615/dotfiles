@@ -65,8 +65,8 @@ set ignorecase	" ignore case when searching
 set showmatch	" highlight matched quote
 set mouse=a " sane mouse scrolling
 "swp file location 
-set directory=~/tmp/,./
-set backupdir=~/tmp/,./
+set directory=/tmp/,./
+set backupdir=/tmp/,./
 " jump to last position
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
