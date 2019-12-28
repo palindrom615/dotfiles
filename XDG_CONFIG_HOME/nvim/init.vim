@@ -20,7 +20,7 @@ set laststatus=1
 " airline shows buffers as a tab
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='gruvbox'
+let g:airline_theme='base16'
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -43,6 +43,7 @@ Plug 'KeitaNakamura/neodark.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'morhetz/gruvbox'
+Plug 'twerth/ir_black'
 
 call plug#end()
 
@@ -72,7 +73,7 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 set background=dark
-color gruvbox
+color ir_black
 
 " Fold
 "

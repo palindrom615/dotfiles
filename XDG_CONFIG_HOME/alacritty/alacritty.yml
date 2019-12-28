@@ -161,37 +161,38 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Hyper)
+# Colors (IR Black)
 colors:
   # Default colors
   primary:
     background: '0x000000'
     foreground: '0xffffff'
+
   cursor:
-    text: '0xF81CE5'
+    text: '0xffffff'
     cursor: '0xffffff'
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xfe0100'
-    green:   '0x33ff00'
-    yellow:  '0xfeff00'
-    blue:    '0x0066ff'
-    magenta: '0xcc00ff'
-    cyan:    '0x00ffff'
-    white:   '0xd0d0d0'
+    black:   '0x4e4e4e'
+    red:     '0xff6c60'
+    green:   '0xa8ff60'
+    yellow:  '0xffffb6'
+    blue:    '0x96cbfe'
+    magenta: '0xff73fd'
+    cyan:    '0xc6c5fe'
+    white:   '0xeeeeee'
 
   # Bright colors
   bright:
-    black:   '0x808080'
-    red:     '0xfe0100'
-    green:   '0x33ff00'
-    yellow:  '0xfeff00'
-    blue:    '0x0066ff'
-    magenta: '0xcc00ff'
-    cyan:    '0x00ffff'
-    white:   '0xFFFFFF'
+    black:   '0x7c7c7c'
+    red:     '0xffb6b0'
+    green:   '0xceffab'
+    yellow:  '0xffffcb'
+    blue:    '0xb5dcfe'
+    magenta: '0xff9cfe'
+    cyan:    '0xdfdffe'
+    white:   '0xffffff'
 
 # Visual Bell
 #
@@ -293,7 +294,7 @@ cursor:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: Block
+  style: Beam
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
