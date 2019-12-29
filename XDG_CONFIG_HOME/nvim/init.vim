@@ -44,6 +44,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'morhetz/gruvbox'
 Plug 'twerth/ir_black'
+Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
@@ -51,8 +52,8 @@ call plug#end()
 "
 "
 syntax on
-filetype plugin indent on
-set autoindent 
+"filetype plugin indent on
+"set autoindent 
 set number 
 set hlsearch 
 set cursorline " line highlight
