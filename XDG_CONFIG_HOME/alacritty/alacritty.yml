@@ -161,38 +161,32 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (IR Black)
+# Colors (Molokai Dark)
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xffffff'
-
-  cursor:
-    text: '0xffffff'
-    cursor: '0xffffff'
-
+    background: '0x1B1D1E'
+    foreground: '0xF8F8F2'
   # Normal colors
   normal:
-    black:   '0x4e4e4e'
-    red:     '0xff6c60'
-    green:   '0xa8ff60'
-    yellow:  '0xffffb6'
-    blue:    '0x96cbfe'
-    magenta: '0xff73fd'
-    cyan:    '0xc6c5fe'
-    white:   '0xeeeeee'
-
+    black:   '0x333333'
+    red:     '0xC4265E'
+    green:   '0x86B42B'
+    yellow:  '0xB3B42B'
+    blue:    '0x6A7EC8'
+    magenta: '0x8C6BC8'
+    cyan:    '0x56ADBC'
+    white:   '0xE3E3DD'
   # Bright colors
   bright:
-    black:   '0x7c7c7c'
-    red:     '0xffb6b0'
-    green:   '0xceffab'
-    yellow:  '0xffffcb'
-    blue:    '0xb5dcfe'
-    magenta: '0xff9cfe'
-    cyan:    '0xdfdffe'
-    white:   '0xffffff'
+    black:   '0x666666'
+    red:     '0xF92672'
+    green:   '0xA6E22E'
+    yellow:  '0xE2E22E'
+    blue:    '0x819AFF'
+    magenta: '0xAE81FF'
+    cyan:    '0x66D9EF'
+    white:   '0xF8F8F2'
 
 # Visual Bell
 #

@@ -233,6 +233,7 @@ bar {
 	status_command .config/sway/status.py
 
 	 colors {
+	 	background #00000055
 		statusline #ffffff
 		active_workspace #32323200 #32323200 #ffffff55
 		inactive_workspace #32323200 #32323200 #ffffff55

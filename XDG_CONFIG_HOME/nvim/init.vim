@@ -45,6 +45,7 @@ Plug 'dracula/vim',{'as':'dracula'}
 Plug 'morhetz/gruvbox'
 Plug 'twerth/ir_black'
 Plug 'tpope/vim-sleuth'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
