@@ -52,14 +52,14 @@ class Block():
             setattr(self, k, props[k])
 
     @staticmethod
-    def head_block(name, **props):
+    def head_block(txt, **props):
         props = {"color": "000000", "background": "FFFFFF", **props}
-        return Block(name, **props)
+        return Block(txt, **props)
 
     @staticmethod
-    def body_block(num, **props):
+    def body_block(txt, **props):
         props = {"border_left": 0, "border_right": 0, **props}
-        return Block(num, **props)
+        return Block(txt, **props)
 
     @staticmethod
     def blocks(name, *bodies, **props):
@@ -76,7 +76,6 @@ def brightness():
     _, _, current_brightness, current_percentage, max_brightness = str(
         process.communicate()[0])[0:-3].split(',')
     return Block.blocks("明", f"{current_percentage:>4}")
-
 
 @Interval(4)
 def cpu():
@@ -152,7 +151,7 @@ def main():
     net_wireless = net_block("波", "wlp2s0")
 
     def sys_info():
-        blocks = [*brightness(), *next(net_wired), *next(net_wireless),
+        blocks = [*next(net_wired), *next(net_wireless),
                   *cpu(), *mem(), *battery(), *today(), *now()]
         return [block.__dict__ for block in blocks]
     print('{"version": 1}')

@@ -107,7 +107,7 @@ rofi.show-icons:                     true
 ! "Indicate how it match by underlining it." Set from: Default
 ! rofi.show-match:                     true
 ! "New style theme file" Set from: File
-rofi.theme:                          /usr/share/rofi/themes/Arc-Dark.rasi
+rofi.theme:                          /usr/share/rofi/themes/gruvbox-dark-hard.rasi
 ! "Color scheme for normal row" Set from: Default
 ! rofi.color-normal:                   
 ! "Color scheme for urgent row" Set from: Default
