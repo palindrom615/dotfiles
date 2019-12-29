@@ -12,9 +12,6 @@ except ImportError as e:
     print("'psutil' package not installed: do `pip install psutil`")
     sys.exit(1)
 
-print('{"version": 1}')
-print('[')
-
 
 class Interval():
     """
@@ -55,12 +52,14 @@ class Block():
             setattr(self, k, props[k])
 
     @staticmethod
-    def head_block(name, **kargs):
-        return Block(name, separator=False, **kargs)
+    def head_block(name, **props):
+        props = {"color": "000000", "background": "FFFFFF", **props}
+        return Block(name, **props)
 
     @staticmethod
-    def body_block(num, **kargs):
-        return Block(num, border_left=0, border_right=0, **kargs)
+    def body_block(num, **props):
+        props = {"border_left": 0, "border_right": 0, **props}
+        return Block(num, **props)
 
     @staticmethod
     def blocks(name, *bodies, **props):
@@ -103,20 +102,19 @@ def now():
     return Block.blocks("時", time.strftime("%H:%M").rjust(5))
 
 
-@Interval(60)
+@Interval(4)
 def battery():
     battery_stats = psutil.sensors_battery()
     percentage = battery_stats.percent
     power_plugged = battery_stats.power_plugged
-    background = "#BE132D" if power_plugged else None
-    return Block.blocks('電', f"{percentage:3.0f}%", background=background)
+    props = {}
+    if power_plugged:
+        props['background'] = "BE132D"
+        props["color"] = "FFFFFF"
+    return Block.blocks('電', f"{percentage:3.0f}%", **props)
 
 
 def net_block(name, intfc):
-    interface_addrs = psutil.net_if_addrs().get(intfc) or []
-    is_working = socket.AF_INET in [snicaddr.family for snicaddr in interface_addrs]
-    not_working = Block.body_block("不通", color="#ffffff55")
-
     def human_readable_size(size):
         for unit in ['B', 'K', 'M', 'G', 'T']:
             if size < 1024.0:
@@ -129,6 +127,11 @@ def net_block(name, intfc):
 
     acc = (0, 0)
     while True:
+        interface_addrs = psutil.net_if_addrs().get(intfc) or []
+        is_working = socket.AF_INET in [
+            snicaddr.family for snicaddr in interface_addrs]
+        not_working = Block.body_block("不通", color="#ffffff55")
+
         if not is_working:
             yield Block.blocks(name, not_working)
             continue
@@ -144,17 +147,22 @@ def net_block(name, intfc):
         yield Block.blocks(name, up, down)
 
 
-net_wired_gen = net_block("線", "enp12s0u1")
-net_wireless_gen = net_block("波", "wlp2s0")
+def main():
+    net_wired = net_block("線", "enp12s0u1")
+    net_wireless = net_block("波", "wlp2s0")
+
+    def sys_info():
+        blocks = [*brightness(), *next(net_wired), *next(net_wireless),
+                  *cpu(), *mem(), *battery(), *today(), *now()]
+        return [block.__dict__ for block in blocks]
+    print('{"version": 1}')
+    print('[')
+
+    starttime = time.time()
+    while True:
+        print(json.dumps(sys_info()), end=",", flush=True)
+        time.sleep(1. - ((time.time() - starttime) % 1.))
 
 
-def sys_info():
-    blocks = [*brightness(), *next(net_wired_gen), *next(net_wireless_gen),
-              *cpu(), *mem(), *battery(), *today(), *now()]
-    return [block.__dict__ for block in blocks]
-
-
-starttime = time.time()
-while True:
-    print(json.dumps(sys_info()), end=",", flush=True)
-    time.sleep(1. - ((time.time() - starttime) % 1.))
+if __name__ == "__main__":
+    main()
