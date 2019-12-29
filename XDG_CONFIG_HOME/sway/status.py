@@ -88,8 +88,8 @@ def cpu():
 @Interval(4)
 def mem():
     vmem = psutil.virtual_memory()
-    mem_percent = vmem.available / vmem.total
-    return Block.blocks("記", f"{mem_percent:6.1%}")
+    mem_percent = vmem.percent
+    return Block.blocks("記", f"{mem_percent:5}%")
 
 
 @Interval(60)
