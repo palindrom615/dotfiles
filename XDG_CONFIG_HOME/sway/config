@@ -33,8 +33,9 @@ output * bg wp.jpg fit #000000
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output eDP-1 pos 0 0
-output DP-3 pos 1920 0
-output "Philips Consumer Electronics Company PHL BDM4065 0x00000E20" pos 0 1080
+output "Unknown 2450W C23E5BA000078" pos 1920 0
+output "Unknown TGL 190TW 7161106030108" pos 3840 0
+#output "Philips Consumer Electronics Company PHL BDM4065 0x00000E20" pos 0 0
 
 ### Idle configuration
 #
@@ -233,16 +234,15 @@ bar {
 
 	 colors {
 		statusline #ffffff
-		active_workspace #32323200 #32323200 #5c5c5c
-		inactive_workspace #32323200 #32323200 #5c5c5c
-		focused_workspace #ffffff00 #BE132D #ffffff
+		active_workspace #32323200 #32323200 #ffffff55
+		inactive_workspace #32323200 #32323200 #ffffff55
+		focused_workspace #ffffff #BE132D #ffffff
 	}
 }
 
 include /etc/sway/config.d/*
 
-#font pango:roboto-regular
-font pango:"Cascadia Code"
+font pango:Cascadia Code
 
 #
 # Border Style:

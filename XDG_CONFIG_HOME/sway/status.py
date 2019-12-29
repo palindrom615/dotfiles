@@ -63,7 +63,7 @@ class Block():
         return Block(num, border_left=0, border_right=0, **kargs)
 
     @staticmethod
-    def blocks(name, *bodies, props={}):
+    def blocks(name, *bodies, **props):
         head = Block.head_block(name, **props)
         body_blocks = [body if isinstance(body, Block) else
                        Block.body_block(body, **props) for body in bodies]
@@ -109,27 +109,30 @@ def battery():
     percentage = battery_stats.percent
     power_plugged = battery_stats.power_plugged
     background = "#BE132D" if power_plugged else None
-    return Block.blocks('電', f"{percentage:3.0f}%", props={"background": background})
+    return Block.blocks('電', f"{percentage:3.0f}%", background=background)
 
 
 def net_block(name, intfc):
     interface_addrs = psutil.net_if_addrs().get(intfc) or []
-    is_working = socket.AF_INET in [
-        snicaddr.family for snicaddr in interface_addrs]
+    is_working = socket.AF_INET in [snicaddr.family for snicaddr in interface_addrs]
     not_working = Block.body_block("不通", color="#ffffff55")
 
-    def human_readable_size(size, decimal_places=0):
+    def human_readable_size(size):
         for unit in ['B', 'K', 'M', 'G', 'T']:
             if size < 1024.0:
                 break
             size /= 1024.0
+        decimal_places = 1 if size < 100 else 0
         return f"{size:4.{decimal_places}f}{unit}"
 
     def color(x): return "ffffff55" if x == 0 else None
 
     acc = (0, 0)
     while True:
-        new = psutil.net_io_counters(pernic=True)[intfc]
+        if not is_working:
+            yield Block.blocks(name, not_working)
+            continue
+        new = psutil.net_io_counters(pernic=True).get(intfc)
         up = new.bytes_sent - acc[0]
         down = new.bytes_recv - acc[1]
 
@@ -138,7 +141,7 @@ def net_block(name, intfc):
         down = Block.body_block(
             f"下{human_readable_size(down)}", color=color(down))
         acc = (new.bytes_sent, new.bytes_recv)
-        yield Block.blocks(name, up, down if is_working else not_working)
+        yield Block.blocks(name, up, down)
 
 
 net_wired_gen = net_block("線", "enp12s0u1")
