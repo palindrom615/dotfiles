@@ -1,9 +1,11 @@
 #!/usr/bin/env sh
 
 # macOS does not have coreutils out-of-box
-realpath() {
-	[[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
-}
+if ! type realpath > /dev/null; then
+	realpath() {
+		[[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+	}
+fi
 
 REPODIR=$(realpath $(dirname "$0"))
 
