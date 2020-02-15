@@ -19,5 +19,11 @@ if status --is-login
 	end
 end
 
+## user side executables
+add_bin_paths $HOME/.deno \
+	$HOME/.local/share/flutter \
+	$HOME/.local/share/google-cloud-sdk \
+	$HOME/.cargo
+
 eval (starship init fish)
 

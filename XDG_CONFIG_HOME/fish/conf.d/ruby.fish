@@ -1,3 +1,3 @@
 if command_exist ruby && command_exist gem
-	add_path (ruby -r rubygems -e 'puts Gem.user_dir')/bin
+	add_bin_paths (ruby -r rubygems -e 'puts Gem.user_dir')
 end
