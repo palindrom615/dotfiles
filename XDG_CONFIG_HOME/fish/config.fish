@@ -25,5 +25,12 @@ add_bin_paths $HOME/.deno \
 	$HOME/.local/share/google-cloud-sdk \
 	$HOME/.cargo
 
+## own alias settings
+alias k='kubectl'
+alias d='docker'
+alias v='nvim'
+alias l='exa'
+alias c='bat'
+
 eval (starship init fish)
 
