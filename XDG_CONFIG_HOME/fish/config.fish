@@ -25,12 +25,44 @@ add_bin_paths $HOME/.deno \
 	$HOME/.local/share/google-cloud-sdk \
 	$HOME/.cargo
 
+## go settings
+add_bin_paths $HOME/go $HOME/.local/share/go
+if type -q go
+	set -x GO111MODULE on
+end
+
+## nodejs settings
+if type -q npm
+	add_bin_paths (npm get prefix)
+end
+
+if type -q yarn
+	add_bin_paths (yarn config get prefix)
+end
+
+## python settings
+if type -q python
+	add_bin_paths (python -m site --user-base)
+end
+
+## ruby settings
+if type -q ruby; and type -q gem
+	add_bin_paths (ruby -r rubygems -e 'puts Gem.user_dir')
+end
+
+## conda settings
+if test -d $HOME/.local/share/anaconda3
+	# >>> conda initialize >>>
+	# !! Contents within this block are managed by 'conda init' !!
+	eval $HOME/.local/share/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+	# <<< conda initialize <<<
+end
+
 ## own alias settings
-alias k='kubectl'
-alias d='docker'
-alias v=(fallback_command nvim vim vi)
 alias l=(fallback_command exa ls)
 alias c=(fallback_command bat cat)
+alias v=(fallback_command nvim vim vi)
+alias k='kubectl'
+alias d='docker'
 
 eval (starship init fish)
-
