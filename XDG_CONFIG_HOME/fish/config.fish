@@ -28,9 +28,9 @@ add_bin_paths $HOME/.deno \
 ## own alias settings
 alias k='kubectl'
 alias d='docker'
-alias v='nvim'
-alias l='exa'
-alias c='bat'
+alias v=(fallback_command nvim vim vi)
+alias l=(fallback_command exa ls)
+alias c=(fallback_command bat cat)
 
 eval (starship init fish)
 
