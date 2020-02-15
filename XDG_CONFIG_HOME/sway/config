@@ -217,7 +217,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # screenshot
-bindsym $mod+p exec grim -g "$(slurp -d)" $(date -Iseconds)-screenshot.png
+bindsym $mod+p exec grim -g "$(slurp -d)" ~/Pictures/$(date -Iseconds)-screenshot.png
 
 #
 # Status Bar:
