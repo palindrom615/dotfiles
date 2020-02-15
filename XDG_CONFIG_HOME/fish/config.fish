@@ -65,4 +65,6 @@ alias v=(fallback_command nvim vim vi)
 alias k='kubectl'
 alias d='docker'
 
-eval (starship init fish)
+if type -q starship
+	eval (starship init fish)
+end
