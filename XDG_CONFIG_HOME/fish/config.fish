@@ -58,6 +58,11 @@ if test -d $HOME/.local/share/anaconda3
 	# <<< conda initialize <<<
 end
 
+## snap settings
+if test -d /var/lib/snapd/snap
+	add_bin_paths /var/lib/snapd/snap
+end
+
 ## own alias settings
 alias l=(fallback_command exa ls)
 alias c=(fallback_command bat cat)
