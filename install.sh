@@ -7,6 +7,10 @@ if ! type realpath > /dev/null; then
 	}
 fi
 
+mkdir -p $HOME/Pictures
+
+wget -bq "https://source.unsplash.com/featured/1920x1440/?wallpaper,nature" -O $HOME/Pictures/wp.jpg
+
 REPODIR=$(realpath $(dirname "$0"))
 
 ln -s $REPODIR/XDG_CONFIG_HOME/* $HOME/.config

@@ -27,7 +27,7 @@ set $menu rofi -show combi -combi-modi "drun,run" -modi combi | xargs swaymsg ex
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg wp.jpg fill #000000
+output * bg $HOME/Pictures/wp.jpg fill #000000
 
 #
 # Example configuration:
