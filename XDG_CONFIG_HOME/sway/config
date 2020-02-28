@@ -1,3 +1,6 @@
+exec mako
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
+exec ibus-daemon -drx
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -33,6 +36,8 @@ output * bg wp.jpg fill #000000
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output eDP-1 pos 0 1080
+bindswitch --reload lid:on output eDP-1 disable
+bindswitch --reload lid:off output eDP-1 enable
 output "Unknown 2450W C23E5BA000078" pos 0 0 
 output "Unknown TGL 190TW 7161106030108" pos 1920 0 transform 270
 #output "Philips Consumer Electronics Company PHL BDM4065 0x00000E20" pos 0 0
@@ -43,7 +48,7 @@ output "Unknown TGL 190TW 7161106030108" pos 1920 0 transform 270
 #
 exec swayidle \
 	timeout 1200 'swaylock' \
-	timeout 2400 'systemctl suspend' \
+	timeout 2400 'systemctl hibernate' \
 	resume 'swaymsg "output * dpms on"' \
 	before-sleep 'swaylock'
 bindsym $mod+Shift+Ctrl+l exec swaylock
@@ -56,12 +61,18 @@ bindsym $mod+Shift+Ctrl+l exec swaylock
 #
 # Example configuration:
 #
-input "1739:0:Synaptics_TM3288-011" {
+input type:touchpad {
 	dwt enabled
 	tap enabled
 	natural_scroll enabled
 	middle_emulation enabled
 	scroll_method two_finger
+}
+
+input type:mouse {
+	drag enabled
+	scroll_button button2
+	scroll_method on_button_down
 }
 
 #
@@ -185,12 +196,12 @@ input "1739:0:Synaptics_TM3288-011" {
 #
 # Special Keys:
 #
-	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-	bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-	bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+	bindsym XF86AudioRaiseVolume exec pamixer -ui 2 && pamixer --get-volume > $SWAYSOCK.wob
+	bindsym XF86AudioLowerVolume exec pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob
+	bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $SWAYSOCK.wob ) || pamixer --get-volume > $SWAYSOCK.wob
 	bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-	bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-	bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+	bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
+	bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
 #
 # Resizing containers:
 #
