@@ -46,6 +46,7 @@ Plug 'morhetz/gruvbox'
 Plug 'twerth/ir_black'
 Plug 'tpope/vim-sleuth'
 Plug 'chriskempson/base16-vim'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 

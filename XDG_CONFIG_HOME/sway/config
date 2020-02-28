@@ -233,7 +233,7 @@ bar {
 	status_command .config/sway/status.py
 
 	 colors {
-	 	background #00000055
+	 	background #282C34C0
 		statusline #ffffff
 		active_workspace #ffffff #ffffff #000000
 		inactive_workspace #00000055 #00000055 #ffffff
@@ -252,8 +252,5 @@ default_border none
 smart_borders on
 
 smart_gaps on
-gaps outer 5 
 gaps inner 5 
 
-exec mako
-exec ibus-daemon -drx
