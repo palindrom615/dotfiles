@@ -3,7 +3,7 @@
 #
 if ! (declare -f -F pathmunge > /dev/null ); then
 	pathmunge () {
-		if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)" ; then
+		if (test -d "$1") && ! (echo $PATH | /bin/egrep -q "(^|:)$1($|:)") ; then
 			if [ "$2" = "after" ] ; then
 				PATH=$PATH:$1
 			else
