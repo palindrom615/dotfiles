@@ -63,12 +63,12 @@ if command -v ruby && command -v gem &> /dev/null; then
 	pathmunge "$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
 fi
 
-# ibus
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-if [[ -x "$(command -v ibus-daemon)" ]]; then
-	ibus-daemon -drx
+# nimf
+export GTK_IM_MODULE=nimf
+export XMODIFIERS=@im=nimf
+export QT_IM_MODULE=nimf
+if [[ -x "$(command -v nimf)" ]]; then
+	nimf
 fi
 
 # wayland

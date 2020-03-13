@@ -265,13 +265,3 @@ smart_borders on
 smart_gaps on
 gaps inner 5 
 
-# IBus
-bindsym Shift+space mode "j: japanese; k: korean; v: vietnamese; esc: english"
-
-mode "j: japanese; k: korean; v: vietnamese; esc: english" {
-	bindsym j exec ibus engine anthy; mode "default"
-	bindsym k exec ibus engine hangul; mode "default"
-	bindsym v exec ibus engine Unikey; mode "default"
-	bindsym Return exec ibus engine xkb:us::eng; mode "default"
-	bindsym Escape exec ibus engine xkb:us::eng; mode "default"
-}
