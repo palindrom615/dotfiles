@@ -21,7 +21,7 @@ set $term alacritty
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu rofi -show combi -combi-modi "drun,run" -modi combi | xargs swaymsg exec
+set $menu rofi -show-icons -show combi -combi-modi "drun,run" -modi combi | xargs swaymsg exec
 #set $menu dmenu | xargs swaymsg exec
 
 ### Output configuration
