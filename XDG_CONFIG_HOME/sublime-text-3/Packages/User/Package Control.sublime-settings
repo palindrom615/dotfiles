@@ -5,10 +5,12 @@
 	],
 	"installed_packages":
 	[
+		"Gitignored File Excluder",
 		"Package Control",
 		"PowerShell",
 		"Rust Enhanced",
 		"Terminus",
-		"Theme - Afterglow"
+		"Theme - Afterglow",
+		"TOML"
 	]
 }
