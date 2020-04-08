@@ -1,10 +1,15 @@
 {
+	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
 	"font_face": "Cascadia Code",
 	"ignored_packages":
 	[
-		"Vintage",
-		"Rust"
+		"Rust",
+		"Vintage"
 	],
-	"theme": "Afterglow.sublime-theme",
-	"rulers": [80, 120],
+	"rulers":
+	[
+		80,
+		120
+	],
+	"theme": "Afterglow.sublime-theme"
 }
