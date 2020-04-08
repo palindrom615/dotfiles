@@ -4,7 +4,11 @@
 New-Item -Path ~\.config -ItemType directory
 
 Get-ChildItem $PSScriptRoot\APPDATA | ForEach-Object -Process {
-	New-Item -Path $env:APPDATA -Name $_.Name -ItemType SymbolicLink -Value $_.FullName
+	New-Item -Path $env:AppData -Name $_.Name -ItemType SymbolicLink -Value $_.FullName
+}
+
+Get-ChildItem $PSScriptRoot\LOCALAPPDATA\Packages | ForEach-Object -Process {
+    New-Item -Path $env:LocalAppData\Packages -Name $_.Name -ItemType SymbolicLink -Value $_.FullName
 }
 
 Get-ChildItem $PSScriptRoot\XDG_CONFIG_HOME | ForEach-Object -Process {
