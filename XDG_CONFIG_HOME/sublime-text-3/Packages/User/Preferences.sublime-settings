@@ -1,0 +1,10 @@
+{
+	"font_face": "Cascadia Code",
+	"ignored_packages":
+	[
+		"Vintage",
+		"Rust"
+	],
+	"theme": "Afterglow.sublime-theme",
+	"rulers": [80, 120],
+}
