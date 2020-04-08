@@ -59,7 +59,7 @@ if command -v python &> /dev/null; then
 fi
 
 # ruby
-if command -v ruby && command -v gem &> /dev/null; then
+if command -v ruby &> /dev/null && command -v gem &> /dev/null; then
 	pathmunge "$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
 fi
 

@@ -1,6 +1,6 @@
 exec mako
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
-exec ibus-daemon -drx
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -23,6 +23,9 @@ set $term alacritty
 # Note: it's recommended that you pass the final command to sway
 set $menu rofi -show-icons -show combi -combi-modi "drun,run" -modi combi | xargs swaymsg exec
 #set $menu dmenu | xargs swaymsg exec
+
+set $browser firefox
+set $fileBrowser thunar
 
 ### Output configuration
 #
@@ -47,8 +50,8 @@ output "Unknown TGL 190TW 7161106030108" pos 1920 0 transform 270
 # Example configuration:
 #
 exec swayidle \
-	timeout 1200 'swaylock' \
-	timeout 2400 'systemctl hibernate' \
+	timeout 600 'swaylock' \
+	timeout 1200 'systemctl hybrid-sleep' \
 	resume 'swaymsg "output * dpms on"' \
 	before-sleep 'swaylock'
 bindsym $mod+Shift+Ctrl+l exec swaylock
@@ -87,10 +90,13 @@ input type:mouse {
 	bindsym $mod+Return exec $term
 
 	# kill focused window
-	bindsym $mod+Shift+q kill
+	bindsym $mod+q kill
 
 	# start your launcher
 	bindsym $mod+d exec $menu
+
+	bindsym $mod+i exec $browser
+	bindsym $mod+o exec $fileBrowser
 
 	# Drag floating windows by holding down $mod and left mouse button.
 	# Resize them with right mouse button + $mod.
