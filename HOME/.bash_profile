@@ -1,9 +1,9 @@
 #
-# ~/.bash_profile
+# ~/.profile
 #
 if ! (declare -f -F pathmunge > /dev/null ); then
 	pathmunge () {
-		if (test -d "$1") && ! (echo $PATH | /bin/egrep -q "(^|:)$1($|:)") ; then
+		if (test -d "$1") && ! (echo $PATH | /bin/egrep -q "(^|:)$1($|:)") &> /dev/null; then
 			if [ "$2" = "after" ] ; then
 				PATH=$PATH:$1
 			else
@@ -56,6 +56,7 @@ fi
 # python
 if command -v python &> /dev/null; then
 	pathmunge "$(python -m site --user-base)/bin"
+	alias python="$(fallback_commands python3 python)"
 fi
 
 # ruby
@@ -63,18 +64,28 @@ if command -v ruby &> /dev/null && command -v gem &> /dev/null; then
 	pathmunge "$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
 fi
 
-# nimf
-export GTK_IM_MODULE=nimf
-export XMODIFIERS=@im=nimf
-export QT_IM_MODULE=nimf
-if [[ -x "$(command -v nimf)" ]]; then
-	nimf
+# Linux
+if [ $(uname) == "Linux" ]; then
+
+	# nimf
+	export GTK_IM_MODULE=nimf
+	export XMODIFIERS=@im=nimf
+	export QT_IM_MODULE=nimf
+	if [[ -x "$(command -v nimf)" ]]; then
+		nimf
+	fi
+
+	# wayland
+	export _JAVA_AWT_WM_NONREPARENTING=1
+	export MOZ_ENABLE_WAYLAND=1
+
+	if [[ -x "$(command -v sway)" ]] && [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+		exec sway
+	fi
 fi
 
-# wayland
-export _JAVA_AWT_WM_NONREPARENTING=1
-export MOZ_ENABLE_WAYLAND=1
-
-if [[ -x "$(command -v sway)" ]] && [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-	exec sway
+# macOS
+if [ $(uname) == "Darwin" ]; then
+	pathmunge "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+	pathmunge "/Applications/Sublime Text.app/Contents/SharedSupport/bin"
 fi

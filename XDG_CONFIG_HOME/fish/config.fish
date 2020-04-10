@@ -18,7 +18,7 @@ if status --is-login
 	for file in /etc/profile.d/*.sh
 		bass source $file
 	end
-	bass source $HOME/.bash_profile
+	bass source $HOME/.profile
 end
 
 
