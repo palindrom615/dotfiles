@@ -55,8 +55,8 @@ fi
 
 # python
 if command -v python &> /dev/null; then
-	pathmunge "$(python -m site --user-base)/bin"
 	alias python="$(fallback_commands python3 python)"
+	pathmunge "$(python -m site --user-base)/bin"
 fi
 
 # ruby
