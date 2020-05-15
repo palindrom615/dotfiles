@@ -40,3 +40,7 @@ alias d='docker'
 if type -q starship
 	eval (starship init fish)
 end
+
+if command -q thefuck
+	thefuck --alias | source
+end
