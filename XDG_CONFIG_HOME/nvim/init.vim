@@ -3,7 +3,7 @@
 "
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-sleuth'
 
 Plug 'scrooloose/nerdtree'
 " turn on Nerd tree when vim turned on
@@ -21,6 +21,9 @@ set laststatus=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='base16'
+" Enable integration with airline.
+let g:airline#extensions#ale#enabled = 1
+
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -30,9 +33,6 @@ let g:ale_completion_enabled = 1
 " Error and warning signs.
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
-
-" Enable integration with airline.
-let g:airline#extensions#ale#enabled = 1
 
 "colorschemes
 Plug 'prognostic/plasticine'
@@ -44,7 +44,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'dracula/vim',{'as':'dracula'}
 Plug 'morhetz/gruvbox'
 Plug 'twerth/ir_black'
-Plug 'tpope/vim-sleuth'
 Plug 'chriskempson/base16-vim'
 Plug 'joshdick/onedark.vim'
 
@@ -54,8 +53,8 @@ call plug#end()
 "
 "
 syntax on
-"filetype plugin indent on
-"set autoindent 
+filetype plugin indent on
+set autoindent 
 set number 
 set hlsearch 
 set cursorline " line highlight
