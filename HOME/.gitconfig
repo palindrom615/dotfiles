@@ -17,3 +17,10 @@ email = palindrom615@gmail.com
 	required = true
 [core]
 	editor = vim
+	pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+[interactive]
+    diffFilter = delta --color-only
+[merge]
+	conflictstyle = diff3
+[rerere]
+	enabled = true
