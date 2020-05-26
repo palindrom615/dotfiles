@@ -1,10 +1,11 @@
 export KEYTIMEOUT=1
-bindkey -v
+bindkey -e
 
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
+zplug "scmbreeze/scm_breeze"
 
 zplug load
 
@@ -15,8 +16,6 @@ fi
 if command -v thefuck &> /dev/null; then
 	eval "$(thefuck --alias)"
 fi
-
-[ -s "/Users/haley/.scm_breeze/scm_breeze.sh" ] && source "/Users/haley/.scm_breeze/scm_breeze.sh"
 
 function fallback_command {
 	for com in $argv; do
