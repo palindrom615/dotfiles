@@ -1,3 +1,5 @@
+bindkey -v
+
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-autosuggestions"
@@ -14,4 +16,5 @@ if command -v thefuck &> /dev/null; then
 fi
 
 [ -s "/Users/haley/.scm_breeze/scm_breeze.sh" ] && source "/Users/haley/.scm_breeze/scm_breeze.sh"
+
 
