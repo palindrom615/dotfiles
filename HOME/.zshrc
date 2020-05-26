@@ -23,9 +23,8 @@ zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
       zdharma/fast-syntax-highlighting \
   atload"_zsh_autosuggest_start" \
-      zsh-users/zsh-autosuggestions \
-  atpull"$ZINIT[PLUGINS_DIR]/scmbreeze---scm_breeze/install.sh" pick"$HOME/.scm_breeze/scm_breeze.sh" \
-      scmbreeze/scm_breeze
+      zsh-users/zsh-autosuggestions
+zinit light scmbreeze/scm_breeze
 zinit snippet OMZ::plugins/docker-compose/docker-compose.plugin.zsh
 zinit snippet OMZ::plugins/kubectl/kubectl.plugin.zsh
 
