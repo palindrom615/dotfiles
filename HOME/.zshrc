@@ -28,8 +28,11 @@ zinit light scmbreeze/scm_breeze
 zinit snippet OMZ::plugins/docker-compose/docker-compose.plugin.zsh
 zinit snippet OMZ::plugins/kubectl/kubectl.plugin.zsh
 
-export KEYTIMEOUT=1
+KEYTIMEOUT=1
 bindkey -e
+
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
 
 function fallback_command {
 	for com in $argv; do
