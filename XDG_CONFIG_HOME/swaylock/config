@@ -23,25 +23,25 @@ inside-clear-color=00000000
 #inside-caps-lock-color=00000000
 
 line-color=00000000
-line-clear-color=00000000
-line-caps-lock-color=00000000
-line-ver-color=00000000
-line-wrong-color=00000000
+line-clear-color=e6db74
+line-caps-lock-color=A6E22E
+line-ver-color=66d9ef
+line-wrong-color=f92672
 separator-color=00000000
 
 font=Cascadia Code
 font-size=16
-text-color=272822
-text-ver-color=fffff0
-text-clear-color=fffff0
-text-caps-lock-color=fffff0
-text-wrong-color=f92672
+text-color=f8f8f2ee
+text-ver-color=66d9efee
+text-clear-color=e6db74ee
+text-caps-lock-color=a6e22eee
+text-wrong-color=f92672ee
 
-ring-color=a6e22e
-ring-clear-color=e6db74
-ring-caps-lock-color=A6E22E
-ring-ver-color=66d9ef
-ring-wrong-color=f92672
+ring-color=75715e22
+ring-clear-color=75715e22
+ring-caps-lock-color=75715e22
+ring-ver-color=75715e22
+ring-wrong-color=75715e22
 key-hl-color=F8F8F2ee
 bs-hl-color=00000077
 
