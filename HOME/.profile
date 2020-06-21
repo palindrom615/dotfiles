@@ -80,7 +80,7 @@ if [ $(uname) == "Linux" ]; then
 	export MOZ_ENABLE_WAYLAND=1
 
 	if [[ -x "$(command -v sway)" ]] && [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-		exec sway
+		exec sway >> ~/.log/sway.log 2>&1
 	fi
 fi
 
