@@ -25,14 +25,15 @@ set $menu rofi -show-icons -show combi -combi-modi "drun,run" -modi combi | xarg
 #set $menu dmenu | xargs swaymsg exec
 
 set $browser firefox
-set $fileBrowser thunar
+set $fileBrowser nautilus
 
 set $next_workspace $(swaymsg -t get_workspaces | .config/sway/new_workspace.py)
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $HOME/Pictures/wp.jpg fill #000000
+#set $bg_image $(find "$HOME/Pictures/이달의 소녀" -type f -print | shuf -n 1) 
+output * bg `find ~/Pictures/loona -type f | shuf -n 1` fill #000000
 
 #
 # Example configuration:
@@ -94,7 +95,7 @@ input type:mouse {
 	bindsym $mod+q kill
 
 	# start your launcher
-	bindsym $mod+d exec $menu
+	bindsym $mod+Space exec $menu
 
 	bindsym $mod+i exec $browser
 	bindsym $mod+o exec $fileBrowser
@@ -192,7 +193,7 @@ input type:mouse {
 	bindsym $mod+Shift+space floating toggle
 
 	# Swap focus between the tiling area and the floating area
-	bindsym $mod+space focus mode_toggle
+	#bindsym $mod+space focus mode_toggle
 
 	# move focus to the parent container
 	bindsym $mod+a focus parent
