@@ -29,8 +29,8 @@ line-ver-color=66d9ef
 line-wrong-color=f92672
 separator-color=00000000
 
-font=Cascadia Code
-font-size=16
+font=Noto Sans
+font-size=24
 text-color=f8f8f2ee
 text-ver-color=66d9efee
 text-clear-color=e6db74ee
