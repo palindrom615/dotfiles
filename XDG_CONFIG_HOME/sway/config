@@ -89,7 +89,7 @@ input type:mouse {
 # Basics:
 #
 	# start a terminal
-	bindsym $mod+Return exec $term
+	bindsym $mod+Return exec .config/sway/toggle_term.py
 
 	# kill focused window
 	bindsym $mod+q kill
