@@ -24,3 +24,5 @@ email = palindrom615@gmail.com
 	conflictstyle = diff3
 [rerere]
 	enabled = true
+[pull]
+	rebase = true
