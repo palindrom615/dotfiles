@@ -23,6 +23,11 @@ fallback_commands () {
 	done
 }
 
+if command -v gpg-agent &> /dev/null; then
+	eval "$(gpg-agent --daemon)"
+fi
+
+
 export EDITOR="$(fallback_commands nvim vim vi)"
 
 # rust
@@ -62,6 +67,11 @@ fi
 # ruby
 if command -v ruby &> /dev/null && command -v gem &> /dev/null; then
 	pathmunge "$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
+fi
+
+# sdkman
+if command -v sdk &> /dev/null; then
+	eval `sdk export`
 fi
 
 # Linux
