@@ -23,8 +23,8 @@ async def main():
 
     if len(term_windows) == 0:
         await i3.command('workspace tmp')
-        await i3.command('exec $term')
-        sleep(0.2) # sway exec command works async!
+        await i3.command('exec $term -e byobu')
+        sleep(0.2)  # sway exec command works async!
 
         tree = await i3.get_tree()
         tmp_workspace = find(tree.workspaces(), lambda x: x.name == 'tmp')
