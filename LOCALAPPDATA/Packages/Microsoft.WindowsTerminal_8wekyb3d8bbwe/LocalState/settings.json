@@ -1,7 +1,5 @@
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "globals" : 
-    {
         "alwaysShowTabs" : true,
         "copyOnSelect" : false,
         "defaultProfile" : "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -230,8 +228,7 @@
         "requestedTheme" : "system",
         "showTabsInTitlebar" : true,
         "showTerminalTitleInTitlebar" : true,
-        "wordDelimiters" : " ./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}~?\u2502"
-    },
+        "wordDelimiters" : " ./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}~?\u2502",
     "profiles" : 
     [
         {
