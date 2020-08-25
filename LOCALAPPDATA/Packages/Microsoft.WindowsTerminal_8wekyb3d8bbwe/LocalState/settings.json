@@ -248,6 +248,21 @@
             "snapOnInput" : true,
             "startingDirectory" : "%USERPROFILE%",
             "useAcrylic" : false
+        },{
+            "acrylicOpacity" : 0.5,
+            "closeOnExit" : true,
+            "colorScheme" : "One Half Dark",
+            "commandline" : "powershell.exe -Command Start-Process -Verb RunAs \"shell:appsFolder\\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App\"",
+            "cursorColor" : "#FFFFFF",
+            "cursorShape" : "bar",
+            "fontFace" : "Cascadia Code",
+            "fontSize" : 10,
+            "historySize" : 9001,
+            "icon" : "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
+            "name" : "Windows PowerShell (elevated)",
+            "padding" : "0, 0, 0, 0",
+            "snapOnInput" : true,
+            "useAcrylic" : false
         },
         {
             "acrylicOpacity" : 0.75,
@@ -289,7 +304,7 @@
         {
             "backgroundImage" : "%programfiles(x86)%\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Assets\\VisualStudio.150x150.contrast-standard_scale-180.png",
             "backgroundImageOpacity" : 0.4,
-            "backgroundImageStretchMode" : "uniform",
+            "backgroundImageStretchMode" : "none",
             "closeOnExit": true,
             // "colorScheme": "Solarized Dark",
             "commandline": "%comspec% /k \"%programfiles(x86)%\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat\"",
