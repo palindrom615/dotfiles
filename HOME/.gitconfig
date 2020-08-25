@@ -20,3 +20,5 @@ email = palindrom615@gmail.com
 	pager = delta --theme='base16'
 [rerere]
 	enabled = true
+[pull]
+	rebase = true
