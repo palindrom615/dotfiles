@@ -33,8 +33,10 @@ set $next_workspace $(swaymsg -t get_workspaces | .config/sway/new_workspace.py)
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #set $bg_image $(find "$HOME/Pictures/이달의 소녀" -type f -print | shuf -n 1) 
-output * bg `find ~/Pictures/loona -type f | shuf -n 1` fill #000000
-
+#output * bg `find ~/Pictures/loona -type f | shuf -n 1` fill #000000
+output * bg $HOME/Pictures/wp3.png fill #1b1b1b 
+output 'Unknown 2450W C23E5BA000078' bg $HOME/Pictures/wp2.jpg fill #1b1b1b
+output 'Unknown TGL 190TW 7161106030108' bg $HOME/Pictures/wp3.png fill #1b1b1b
 #
 # Example configuration:
 #
@@ -251,6 +253,12 @@ bindsym $mod+p exec grim -g "$(slurp -d)" ~/Pictures/$(date -Iseconds)-screensho
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
+
+set $bg-color #00000000
+set $highlight-color #BE132D
+set $font-color #FFFFFF
+set $line-color $font-color
+	
 bar {
 	# position top
 	font pango:Cascadia Code
@@ -261,12 +269,12 @@ bar {
 	position top
 	status_command .config/sway/status.py
 
-	 colors {
-	 	background #282C34C0
-		statusline #ffffff
-		active_workspace #ffffff #ffffff #000000
-		inactive_workspace #00000055 #00000055 #ffffff
-		focused_workspace #ffffff #BE132D #ffffff
+	colors {
+		background $bg-color
+		statusline $font-color 
+		active_workspace #ffffff $line-color #000000
+		inactive_workspace $bg-color $bg-color #ffffff
+		focused_workspace $line-color $highlight-color $font-color 
 	}
 }
 
