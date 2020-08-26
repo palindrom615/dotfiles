@@ -23,10 +23,6 @@ fallback_commands () {
 	done
 }
 
-if command -v gpg-agent &> /dev/null; then
-	eval "$(gpg-agent --daemon)"
-fi
-
 
 export EDITOR="$(fallback_commands nvim vim vi)"
 
