@@ -2,14 +2,8 @@
 
 ignore-empty-password
 daemonize
-#image=$HOME/.config/sway/wp.jpg
-screenshots
-clock
-timestr=%H:%M
-datestr=%y.%m.%d %a
-effect-blur=8x8
-effect-scale=100
-#effect-greyscale
+image=/usr/share/backgrounds/f32/default/f32.png
+scaling=fill
 
 #indicator-x-position=100
 #indicator-y-position=100
@@ -17,31 +11,35 @@ effect-scale=100
 #indicator-radius=30
 
 inside-color=00000000
-inside-ver-color=00000000
-inside-wrong-color=00000000
-inside-clear-color=00000000
-#inside-caps-lock-color=00000000
-
 line-color=00000000
-line-clear-color=e6db74
-line-caps-lock-color=A6E22E
-line-ver-color=66d9ef
-line-wrong-color=f92672
-separator-color=00000000
+text-color=f8f8f2ee
+ring-color=75715e22
+
+key-hl-color=F8F8F2ee
+bs-hl-color=00000077
 
 font=Noto Sans
 font-size=24
-text-color=f8f8f2ee
-text-ver-color=66d9efee
+
+inside-clear-color=00000000
+line-clear-color=e6db74
 text-clear-color=e6db74ee
-text-caps-lock-color=a6e22eee
+ring-clear-color=e6db74
+
+inside-ver-color=00000000
+line-ver-color=66d9ef
+text-ver-color=66d9efee
+ring-ver-color=66d9ef
+
+separator-color=00000000
+
+line-wrong-color=f92672
+ring-wrong-color=f92672
+inside-wrong-color=00000000
 text-wrong-color=f92672ee
 
-ring-color=75715e22
-ring-clear-color=75715e22
+#inside-caps-lock-color=00000000
+line-caps-lock-color=A6E22E
+text-caps-lock-color=a6e22eee
 ring-caps-lock-color=75715e22
-ring-ver-color=75715e22
-ring-wrong-color=75715e22
-key-hl-color=F8F8F2ee
-bs-hl-color=00000077
 
