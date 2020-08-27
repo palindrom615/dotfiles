@@ -34,11 +34,10 @@ set $next_workspace $(swaymsg -t get_workspaces | .config/sway/new_workspace.py)
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#set $bg_image $(find "$HOME/Pictures/이달의 소녀" -type f -print | shuf -n 1) 
-#output * bg `find ~/Pictures/loona -type f | shuf -n 1` fill #000000
-output * bg $HOME/Pictures/wp3.png fill #1b1b1b 
-output 'Unknown 2450W C23E5BA000078' bg $HOME/Pictures/wp2.jpg fill #1b1b1b
-output 'Unknown TGL 190TW 7161106030108' bg $HOME/Pictures/wp3.png fill #1b1b1b
+output * bg /usr/share/backgrounds/f32/default/f32.png fill #1b1b1b 
+#output 'Unknown 2450W C23E5BA000078' bg /usr/share/backgrounds/fedora-workstation/aurora-over-iceland.png fill #1b1b1b
+output 'Unknown 2450W C23E5BA000078' bg $HOME/Pictures/.pic/wp.jpg fill #1b1b1b
+
 #
 # Example configuration:
 #
