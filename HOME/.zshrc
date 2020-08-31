@@ -25,17 +25,19 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zinit light-mode for \
     zinit-zsh/z-a-as-monitor \
     zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
+    zinit-zsh/z-a-bin-gem-node \
+    scmbreeze/scm_breeze
 
+export FZF_BASE="$HOME/.fzf"
 ### End of Zinit's installer chunk
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
       zdharma/fast-syntax-highlighting \
   atload"_zsh_autosuggest_start" \
       zsh-users/zsh-autosuggestions
-zinit light scmbreeze/scm_breeze
 zinit snippet OMZ::plugins/docker-compose/docker-compose.plugin.zsh
 zinit snippet OMZ::plugins/kubectl/kubectl.plugin.zsh
+zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
