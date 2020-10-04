@@ -57,6 +57,7 @@ fi
 # python
 if command -v python &> /dev/null; then
 	alias python="$(fallback_commands python3 python)"
+	alias pip="$(fallback_commands pip3 pip)"
 	pathmunge "$(python -m site --user-base)/bin"
 fi
 
