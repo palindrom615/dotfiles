@@ -17,7 +17,6 @@ email = palindrom615@gmail.com
 	required = true
 [core]
 	editor = vim
-	pager = delta --theme='base16'
 [rerere]
 	enabled = true
 [pull]
