@@ -57,7 +57,6 @@ function fallback_command {
 }
 
 alias l="$(fallback_command exa ls)"
-alias c="$(fallback_command bat cat)"
 alias v="$(fallback_command nvim vim vi)"
 alias d="docker"
 
@@ -73,7 +72,10 @@ fi
 export SDKMAN_DIR="/Users/haley/.sdkman"
 [[ -s "/Users/haley/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/haley/.sdkman/bin/sdkman-init.sh"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 autoload -U select-word-style
 select-word-style bash
 
 export WORDCHARS='.-'
+

@@ -71,12 +71,6 @@ if command -v sdk &> /dev/null; then
 	eval `sdk export`
 fi
 
-if command -v rmtrash &> /dev/null; then
-	alias rm="echo Use 'del', or the full path i.e. '/bin/rm'"
-	alias trash="rmtrash"
-	alias del"rmtrash"
-fi
-
 # Linux
 if [ $(uname) == "Linux" ]; then
 
