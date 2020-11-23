@@ -3,9 +3,17 @@
 "
 call plug#begin('~/.local/share/nvim/plugged')
 
+" auto indent
 Plug 'tpope/vim-sleuth'
-
-Plug 'scrooloose/nerdtree'
+" git support
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+" fzf
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+" nerdtree
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " turn on Nerd tree when vim turned on
 " autocmd vimenter * NERDTree | vertical resize 15 | wincmd p
 map <C-n> :NERDTreeToggle<CR>
@@ -16,10 +24,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 Plug 'vim-airline/vim-airline' 
 Plug 'vim-airline/vim-airline-themes'
 " airline on. have any question? :help airline
-set laststatus=1
+set laststatus=2
 " airline shows buffers as a tab
 let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts = 1
 let g:airline_theme='base16'
 " Enable integration with airline.
 let g:airline#extensions#ale#enabled = 1
@@ -31,22 +38,21 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 let g:ale_completion_enabled = 1
 " Error and warning signs.
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
 
 "colorschemes
-Plug 'prognostic/plasticine'
-Plug 'lu-ren/SerialExperimentsLain'
-Plug 'hzchirs/vim-material'
-Plug 'noahfrederick/vim-noctu'
-Plug 'KeitaNakamura/neodark.vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'dracula/vim',{'as':'dracula'}
-Plug 'morhetz/gruvbox'
-Plug 'twerth/ir_black'
+"Plug 'prognostic/plasticine'
+"Plug 'lu-ren/SerialExperimentsLain'
+"Plug 'hzchirs/vim-material'
+"Plug 'noahfrederick/vim-noctu'
+"Plug 'KeitaNakamura/neodark.vim'
+"Plug 'NLKNguyen/papercolor-theme'
+"Plug 'dracula/vim',{'as':'dracula'}
+"Plug 'morhetz/gruvbox'
+"Plug 'twerth/ir_black'
 Plug 'chriskempson/base16-vim'
-Plug 'joshdick/onedark.vim'
-
+"Plug 'joshdick/onedark.vim'
+"Plug 'baskerville/bubblegum'
+"Plug 'dikiaap/minimalist'
 call plug#end()
 
 " General Settings
@@ -74,8 +80,9 @@ set backupdir=/tmp/,./
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-set background=dark
-color ir_black
+
+set termguicolors 
+color base16-default-dark
 
 " Fold
 "
