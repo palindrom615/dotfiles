@@ -18,3 +18,7 @@ Get-ChildItem $PSScriptRoot\XDG_CONFIG_HOME | ForEach-Object -Process {
 Get-ChildItem $PSScriptRoot\HOME | ForEach-Object -Process {
 	New-Item -Path ~ -Name $_.Name -ItemType SymbolicLink -Value $_.FullName
 }
+
+Get-ChildItem $PSScriptRoot\DOCUMENTS | ForEach-Object -Process {
+	New-Item -Path ~\Documents -Name $_.Name -ItemType SymbolicLink -Value $_.FullName
+}
