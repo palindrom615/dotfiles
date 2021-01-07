@@ -34,10 +34,12 @@ zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
       zdharma/fast-syntax-highlighting \
   atload"_zsh_autosuggest_start" \
-      zsh-users/zsh-autosuggestions
+      zsh-users/zsh-autosuggestions \
+      agkozak/zsh-z
 zinit snippet OMZ::plugins/docker-compose/docker-compose.plugin.zsh
 zinit snippet OMZ::plugins/kubectl/kubectl.plugin.zsh
 zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
+
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
