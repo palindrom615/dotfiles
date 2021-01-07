@@ -62,7 +62,6 @@ alias l="$(fallback_command exa ls)"
 alias v="$(fallback_command nvim vim vi)"
 alias d="docker"
 
-
 if command -v thefuck &> /dev/null; then
 	eval "$(thefuck --alias)"
 fi
@@ -70,14 +69,9 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/haley/.sdkman"
-[[ -s "/Users/haley/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/haley/.sdkman/bin/sdkman-init.sh"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 autoload -U select-word-style
 select-word-style bash
 
 export WORDCHARS='.-'
-
