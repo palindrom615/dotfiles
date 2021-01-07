@@ -1,0 +1,294 @@
+exec mako
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term alacritty
+
+# Your preferred application launcher
+# Note: it's recommended that you pass the final command to sway
+set $menu rofi -show-icons -show combi -combi-modi "drun,run" -modi combi | xargs swaymsg exec
+#set $menu dmenu | xargs swaymsg exec
+
+set $browser firefox
+set $fileBrowser nautilus
+
+set $conf $HOME/.config/sway
+
+set $next_workspace $(swaymsg -t get_workspaces | .config/sway/new_workspace.py)
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg /usr/share/backgrounds/f32/default/f32.png fill #1b1b1b 
+#output 'Unknown 2450W C23E5BA000078' bg /usr/share/backgrounds/fedora-workstation/aurora-over-iceland.png fill #1b1b1b
+output 'Unknown 2450W C23E5BA000078' bg $HOME/Pictures/.pic/wp.jpg fill #1b1b1b
+
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+output eDP-1 pos 900 1080
+bindswitch --reload lid:on output eDP-1 disable
+bindswitch --reload lid:off output eDP-1 enable
+output "Unknown 2450W C23E5BA000078" pos 900 0 
+output "Unknown TGL 190TW 7161106030108" pos 0 0 transform 270
+
+### Idle configuration
+#
+# Example configuration:
+#
+exec swayidle \
+	timeout 600 'swaylock' \
+	timeout 1200 'systemctl hybrid-sleep' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock'
+bindsym $mod+Shift+Ctrl+l exec swaylock
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+#
+# Example configuration:
+#
+input type:touchpad {
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+	scroll_method two_finger
+}
+
+input type:mouse {
+	drag enabled
+	scroll_button button2
+	scroll_method on_button_down
+}
+
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+#
+# Basics:
+#
+	# start a terminal
+	bindsym $mod+Return exec .config/sway/toggle_term.py
+
+	# kill focused window
+	bindsym $mod+q kill
+
+	# start your launcher
+	bindsym $mod+Space exec $menu
+
+	bindsym $mod+i exec $browser
+	bindsym $mod+o exec $fileBrowser
+
+	# Drag floating windows by holding down $mod and left mouse button.
+	# Resize them with right mouse button + $mod.
+	# Despite the name, also works for non-floating windows.
+	# Change normal to inverse to use left mouse button for resizing and right
+	# mouse button for dragging.
+	floating_modifier $mod normal
+
+	# reload the configuration file
+	bindsym $mod+Shift+c reload
+
+	# exit sway (logs you out of your Wayland session)
+	bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+	# Move your focus around
+	bindsym $mod+$left focus left
+	bindsym $mod+$down focus down
+	bindsym $mod+$up focus up
+	bindsym $mod+$right focus right
+	# or use $mod+[up|down|left|right]
+	bindsym $mod+Left focus left
+	bindsym $mod+Down focus down
+	bindsym $mod+Up focus up
+	bindsym $mod+Right focus right
+
+	# _move_ the focused window with the same, but add Shift
+	bindsym $mod+Shift+$left move left
+	bindsym $mod+Shift+$down move down
+	bindsym $mod+Shift+$up move up
+	bindsym $mod+Shift+$right move right
+	# ditto, with arrow keys
+	bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+	# switch to workspace
+	bindsym $mod+1 workspace 壹
+	bindsym $mod+2 workspace 貳
+	bindsym $mod+3 workspace 參
+	bindsym $mod+4 workspace 肆
+	bindsym $mod+5 workspace 伍
+	bindsym $mod+6 workspace 陸
+	bindsym $mod+7 workspace 柒
+	bindsym $mod+8 workspace 捌
+	bindsym $mod+9 workspace 玖
+	bindsym $mod+0 workspace 零
+	bindsym $mod+n exec swaymsg workspace $next_workspace
+
+	# move focused container to workspace
+	bindsym $mod+Shift+1 move container to workspace "壹"; workspace "壹"
+	bindsym $mod+Shift+2 move container to workspace "貳"; workspace "貳"
+	bindsym $mod+Shift+3 move container to workspace "參"; workspace "參"
+	bindsym $mod+Shift+4 move container to workspace "肆"; workspace "肆"
+	bindsym $mod+Shift+5 move container to workspace "伍"; workspace "伍"
+	bindsym $mod+Shift+6 move container to workspace "陸"; workspace "陸"
+	bindsym $mod+Shift+7 move container to workspace "柒"; workspace "柒"
+	bindsym $mod+Shift+8 move container to workspace "捌"; workspace "捌"
+	bindsym $mod+Shift+9 move container to workspace "玖"; workspace "玖"
+	bindsym $mod+Shift+0 move container to workspace "零"; workspace "零"
+	bindsym $mod+Shift+n exec swaymsg move container to workspace $next_workspace; exec swaymsg workspace $next_workspace
+	# Note: workspaces can have any name you want, not just numbers.
+	# We just use 1-10 as the default.
+	
+	bindsym $mod+Ctrl+l workspace next_on_output
+	bindsym $mod+Ctrl+h workspace prev_on_output 
+	bindsym $mod+Ctrl+Right workspace next_on_output
+	bindsym $mod+Ctrl+Left workspace prev_on_output 
+
+#
+# Layout stuff:
+#
+	# You can "split" the current object of your focus with
+	# $mod+b or $mod+v, for horizontal and vertical splits
+	# respectively.
+	bindsym $mod+b splith
+	bindsym $mod+v splitv
+
+	# Switch the current container between different layout styles
+	bindsym $mod+s layout stacking
+	bindsym $mod+w layout tabbed
+	bindsym $mod+e layout toggle split
+
+	# Make the current focus fullscreen
+	bindsym $mod+f fullscreen
+
+	# Toggle the current focus between tiling and floating mode
+	bindsym $mod+Shift+space floating toggle
+
+	# Swap focus between the tiling area and the floating area
+	#bindsym $mod+space focus mode_toggle
+
+	# move focus to the parent container
+	bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+	# Sway has a "scratchpad", which is a bag of holding for windows.
+	# You can send windows there and get them back later.
+
+	# Move the currently focused window to the scratchpad
+	bindsym $mod+Shift+minus move scratchpad
+
+	# Show the next scratchpad window or hide the focused scratchpad window.
+	# If there are multiple scratchpad windows, this command cycles through them.
+	bindsym $mod+minus scratchpad show
+
+#
+# Special Keys:
+#
+	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2% && $conf/get_volume.sh > $SWAYSOCK.wob
+	bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2% && $conf/get_volume.sh > $SWAYSOCK.wob
+	bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && [ `$conf/get_muted.sh` != 'no' ] && echo 0 > $SWAYSOCK.wob || $conf/get_volume.sh > $SWAYSOCK.wob
+	bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+	bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
+	bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
+#
+# Resizing containers:
+#
+mode "resize" {
+	# left will shrink the containers width
+	# right will grow the containers width
+	# up will shrink the containers height
+	# down will grow the containers height
+	bindsym $left resize shrink width 10px
+	bindsym $down resize grow height 10px
+	bindsym $up resize shrink height 10px
+	bindsym $right resize grow width 10px
+
+	# ditto, with arrow keys
+	bindsym Left resize shrink width 10px
+	bindsym Down resize grow height 10px
+	bindsym Up resize shrink height 10px
+	bindsym Right resize grow width 10px
+
+	# return to default mode
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# screenshot
+bindsym $mod+p exec grim -g "$(slurp -d)" ~/Pictures/$(date -Iseconds)-screenshot.png
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+
+set $bg-color #00000000
+set $highlight-color #BE132D
+set $font-color #FFFFFF
+set $line-color $font-color
+	
+bar {
+	# position top
+	font pango:Cascadia Code
+	strip_workspace_numbers yes
+
+	# When the status_command prints a new line to stdout, swaybar updates.
+	# The default just shows the current date and time.
+	position top
+	status_command .config/sway/status.py
+
+	colors {
+		background $bg-color
+		statusline $font-color 
+		active_workspace #ffffff $line-color #000000
+		inactive_workspace $bg-color $bg-color #ffffff
+		focused_workspace $line-color $highlight-color $font-color 
+	}
+}
+
+include /etc/sway/config.d/*
+
+font pango:Cascadia Code
+
+#
+# Border Style:
+#
+default_border none
+smart_borders on
+
+smart_gaps on
+gaps inner 5 
+
