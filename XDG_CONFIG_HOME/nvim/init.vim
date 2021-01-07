@@ -27,7 +27,7 @@ Plug 'vim-airline/vim-airline-themes'
 set laststatus=2
 " airline shows buffers as a tab
 let g:airline#extensions#tabline#enabled=1
-let g:airline_theme='base16'
+"let g:airline_theme='base16'
 " Enable integration with airline.
 let g:airline#extensions#ale#enabled = 1
 
@@ -49,7 +49,7 @@ let g:ale_completion_enabled = 1
 "Plug 'dracula/vim',{'as':'dracula'}
 "Plug 'morhetz/gruvbox'
 "Plug 'twerth/ir_black'
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
 "Plug 'joshdick/onedark.vim'
 "Plug 'baskerville/bubblegum'
 "Plug 'dikiaap/minimalist'
@@ -82,7 +82,7 @@ if has("autocmd")
 endif
 
 set termguicolors 
-color base16-default-dark
+"color base16-default-dark
 
 " Fold
 "
