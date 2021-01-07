@@ -21,3 +21,5 @@ email = palindrom615@gmail.com
 	enabled = true
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main
