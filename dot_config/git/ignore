@@ -1,4 +1,6 @@
 .DS_Store
+._*
+[Dd]esktop.ini
 Thumbs.db
 
 .vscode
