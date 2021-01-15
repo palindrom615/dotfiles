@@ -6,7 +6,7 @@ powered by [chezmoi](https://www.chezmoi.io)
 
 ```sh
 curl -sfL https://git.io/chezmoi | sh
-chezmoi init https://palindrom615/dotfiles.git
-chezmoi apply
+./bin/chezmoi init https://github.com/palindrom615/dotfiles.git
+./bin/chezmoi apply
 ```
 
