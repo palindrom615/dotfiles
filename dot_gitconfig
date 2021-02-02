@@ -17,6 +17,7 @@ email = palindrom615@gmail.com
 	required = true
 [core]
 	editor = vim
+	precomposeunicode = true
 [rerere]
 	enabled = true
 [pull]
