@@ -21,7 +21,6 @@ zinit light-mode for \
 	zinit-zsh/z-a-bin-gem-node \
 	scmbreeze/scm_breeze
 
-export FZF_BASE="$HOME/.fzf"
 ### End of Zinit's installer chunk
 zinit wait lucid light-mode for \
 	atinit"zicompinit; zicdreplay" \
@@ -29,9 +28,10 @@ zinit wait lucid light-mode for \
 	atload"_zsh_autosuggest_start" \
 		zsh-users/zsh-autosuggestions \
 		agkozak/zsh-z
-zinit snippet OMZ::plugins/docker-compose/docker-compose.plugin.zsh
-zinit snippet OMZ::plugins/kubectl/kubectl.plugin.zsh
-zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
+zinit wait lucid for \
+	OMZP::docker-compose \
+	OMZP::kubectl \
+	OMZP::fzf
 
 KEYTIMEOUT=1
 bindkey -e
@@ -55,8 +55,6 @@ alias d="docker"
 if command -v thefuck &> /dev/null; then
 	eval "$(thefuck --alias)"
 fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 autoload -U select-word-style
 select-word-style bash
