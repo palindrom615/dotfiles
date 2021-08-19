@@ -41,7 +41,11 @@ pathmunge $HOME/.local/share/google-cloud-sdk/bin
 # golang
 pathmunge $HOME/go/bin
 pathmunge $HOME/.local/share/go/bin
-export GO111MODULE=on
+if command -v go &> /dev/null; then
+	pathmunge "$(go env GOBIN)"
+	pathmunge "$(go env GOPATH)/bin"
+	export GO111MODULE=on
+fi
 
 # snapcraft
 pathmunge /var/lib/snapd/snap/bin
@@ -56,9 +60,8 @@ fi
 
 # python
 if command -v python3 &> /dev/null; then
-	alias python="$(fallback_commands python3 python)"
-	alias pip="$(fallback_commands pip3 pip)"
-	pathmunge "$(python -m site --user-base)/bin"
+	alias python=python3
+	pathmunge "$(python3 -m site --user-base)/bin"
 fi
 
 # ruby
@@ -68,7 +71,7 @@ fi
 
 # sdkman
 if command -v sdk &> /dev/null; then
-	eval `sdk export`
+#	eval `sdk export`
 fi
 
 # Linux
