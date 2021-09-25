@@ -1,1 +1,3 @@
-Invoke-Expression (&starship init powershell)
+if(Get-Command 'starship' -errorAction SilentlyContinue) {
+    Invoke-Expression (&starship init powershell)
+}
