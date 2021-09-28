@@ -76,28 +76,3 @@ if command -v ruby &> /dev/null && command -v gem &> /dev/null; then
 	pathmunge "$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
 fi
 
-# Linux
-if [ $(uname) == "Linux" ]; then
-
-	# nimf
-	export GTK_IM_MODULE=nimf
-	export XMODIFIERS=@im=nimf
-	export QT_IM_MODULE=nimf
-	if [[ -x "$(command -v nimf)" ]]; then
-		nimf
-	fi
-
-	# wayland
-	export _JAVA_AWT_WM_NONREPARENTING=1
-	export MOZ_ENABLE_WAYLAND=1
-
-	if [[ -x "$(command -v sway)" ]] && [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-		exec sway >> ~/.log/sway.log 2>&1
-	fi
-fi
-
-# macOS
-if [ $(uname) == "Darwin" ]; then
-	pathmunge "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-	pathmunge "/Applications/Sublime Text.app/Contents/SharedSupport/bin"
-fi
