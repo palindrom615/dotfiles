@@ -1,0 +1,8 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+brew "chezmoi"
+brew "fzf"
+brew "node"
+brew "python@3.9"
+brew "starship"
