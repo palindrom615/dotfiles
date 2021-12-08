@@ -13,18 +13,18 @@ if ! (declare -f -F pathmunge > /dev/null ); then
 	}
 fi
 
+command_exists () {
+	command -v "$1" &> /dev/null
+}
+
 fallback_commands () {
 	for command in "$@"
 	do
-		if command -v $command &> /dev/null; then
+		if command_exists $command; then
 			echo $command
 			break
 		fi
 	done
-}
-
-command_exists () {
-	command -v "$1" &> /dev/null
 }
 
 export EDITOR="$(fallback_commands nvim vim vi)"
@@ -51,7 +51,7 @@ pathmunge $HOME/.local/share/google-cloud-sdk/bin
 # golang
 pathmunge $HOME/go/bin
 pathmunge $HOME/.local/share/go/bin
-if command -v go &> /dev/null; then
+if command_exists go; then
 	pathmunge "$(go env GOBIN)"
 	pathmunge "$(go env GOPATH)/bin"
 	export GO111MODULE=on
@@ -61,22 +61,22 @@ fi
 pathmunge /var/lib/snapd/snap/bin
 
 # node
-if command -v npm &> /dev/null; then
+if command_exists npm; then
 	pathmunge "$(npm get prefix)/bin"
 fi
-if command -v yarn &> /dev/null; then
+if command_exists yarn; then
 	pathmunge "$(yarn config get prefix)/bin"
 fi
 
 # python
-if command -v python3 &> /dev/null; then
+if command_exists python3; then
 	alias python=python3
 	alias pip="python3 -m pip"
 	pathmunge "$(python3 -m site --user-base)/bin"
 fi
 
 # ruby
-if command -v ruby &> /dev/null && command -v gem &> /dev/null; then
+if command_exists ruby && command_exists gem; then
 	pathmunge "$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
 fi
 
