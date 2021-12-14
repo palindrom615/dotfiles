@@ -5,8 +5,13 @@ powered by [chezmoi](https://www.chezmoi.io)
 ## Getting started
 
 ```sh
-curl -sfL https://git.io/chezmoi | sh
-./bin/chezmoi init https://github.com/palindrom615/dotfiles.git
-./bin/chezmoi apply
+sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply palindrom615
 ```
 
+or
+
+```powershell
+(iwr -UseBasicParsing https://git.io/chezmoi.ps1).Content | powershell -c -
+cd bin
+chezmoi init --apply palindrom615
+```
