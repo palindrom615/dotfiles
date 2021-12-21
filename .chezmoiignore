@@ -4,7 +4,16 @@ README.md
 AppData
 {{ end }}
 
+{{ if eq .chezmoi.os "windows" }}
+*.zsh
+.profile
+.zprofile
+.zshrc
+.bash_profile
+.bashrc
+{{ end }}
+
 {{ if ne .chezmoi.os "darwin" }}
-private_Library
+Library
 Brewfile
 {{ end }}
