@@ -134,6 +134,12 @@
           "Action": 11,
           "Text": "0x1b"
         },
+        "0x74-0x100000-0x11" : {
+          "Version" : 1,
+          "Action" : 27,
+          "Text" : "697618DF-873D-4F7A-AE79-0DE3725E7DC0",
+          "Label" : ""
+        },
         "0xf703-0x220000": {
           "Action": 10,
           "Text": "[1;2C"
