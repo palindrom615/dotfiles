@@ -47,7 +47,7 @@
         "slogin",
         "telnet"
       ],
-      "Scrollback Lines": 1000,
+      "Scrollback Lines": 100000,
       "HotKey Window Reopens On Activation": false,
       "Flashing Bell": false,
       "Cursor Guide Color": {
@@ -78,7 +78,7 @@
         "Blue Component": "1",
         "Red Component": "1"
       },
-      "Unlimited Scrollback": false,
+      "Unlimited Scrollback": true,
       "Custom Command": "No",
       "HotKey Key Code": 50,
       "Keyboard Map": {
