@@ -87,3 +87,5 @@ if command_exists /usr/libexec/java_home; then
 	pathmunge "$JAVA_HOME/bin"
 fi
 
+pathmunge ~/bin
+
