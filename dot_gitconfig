@@ -18,6 +18,7 @@ email = palindrom615@gmail.com
 [core]
 	editor = vim
 	precomposeunicode = true
+	autocrlf = input
 [rerere]
 	enabled = true
 [pull]
