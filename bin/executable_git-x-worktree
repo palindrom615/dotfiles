@@ -1,0 +1,4 @@
+#!/bin/sh
+
+git worktree add ../$1 -b $1
+
