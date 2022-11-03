@@ -33,7 +33,7 @@ zinit wait lucid for \
 KEYTIMEOUT=1
 bindkey -e
 
-SAVEHIST=10000
+SAVEHIST=100000
 HISTFILE=~/.zsh_history
 
 function fallback_command {
