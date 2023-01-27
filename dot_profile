@@ -82,12 +82,17 @@ if command_exists ruby && command_exists gem; then
 fi
 
 # java
-if command_exists /usr/libexec/java_home; then
-	export JAVA_VERSION=1.8
-	#export JAVA_VERSION=11
-	export JAVA_HOME="$(/usr/libexec/java_home)"
-	pathmunge "$JAVA_HOME/bin"
-fi
+# Add function to switch between java versions without source ~/.profile
+# Usage: chjava 11
+chjava () {
+	if command_exists /usr/libexec/java_home; then
+		JAVA_VERSION=$1
+		JAVA_HOME="$(/usr/libexec/java_home)"
+		pathmunge "$JAVA_HOME/bin"
+	fi
+}
+chjava 11
+alias chjava=". chjava"
 
 pathmunge ~/bin
 
