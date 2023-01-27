@@ -30,7 +30,7 @@ fallback_commands () {
 export EDITOR="$(fallback_commands nvim vim vi)"
 
 # homebrew
-export BREW_PREFIX="$HOME/homebrew"
+export BREW_PREFIX=/opt/homebrew
 if [ -d $BREW_PREFIX ]; then
 	eval "$($BREW_PREFIX/bin/brew shellenv)"
 fi
