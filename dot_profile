@@ -86,8 +86,8 @@ fi
 # Usage: chjava 11
 chjava () {
 	if command_exists /usr/libexec/java_home; then
-		JAVA_VERSION=$1
-		JAVA_HOME="$(/usr/libexec/java_home)"
+		export JAVA_VERSION=$1
+		export JAVA_HOME="$(/usr/libexec/java_home)"
 		pathmunge "$JAVA_HOME/bin"
 	fi
 }
