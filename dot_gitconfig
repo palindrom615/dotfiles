@@ -1,8 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
-name = Jang Whemoon
-email = palindrom615@gmail.com
+	name = Jang Whemoon
+	email = palindrom615@gmail.com
 [credential]
 	helper = store
 [include]
@@ -19,6 +18,7 @@ email = palindrom615@gmail.com
 	editor = vim
 	precomposeunicode = true
 	autocrlf = input
+	excludesFile = ~/.config/git/ignore
 [rerere]
 	enabled = true
 [pull]
