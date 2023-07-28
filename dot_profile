@@ -101,6 +101,7 @@ for i in $(ls $HOME/.kube/conf.d/* 2>/dev/null); do
 	export KUBECONFIG=$KUBECONFIG:$i
 done
 pathmunge "${KREW_ROOT:-$HOME/.krew}/bin"
+alias k="kubectl"
 
 # MANPAGER, EDITOR
 export EDITOR="$(fallback_commands nvim vim vi)"
