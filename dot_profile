@@ -92,7 +92,6 @@ chjava () {
 chjava 11
 alias chjava=". chjava"
 
-pathmunge ~/bin
 
 # kubernetes
 # add all configs in .kube/conf.d
@@ -108,3 +107,9 @@ export EDITOR="$(fallback_commands nvim vim vi)"
 if command_exists bat; then
 	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
+
+# miscs
+pathmunge ~/bin
+pathmunge '/Users/user/Library/Application Support/JetBrains/Toolbox/scripts'
+alias wget="curl -O --continue-at -"
+
