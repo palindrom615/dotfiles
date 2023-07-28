@@ -27,8 +27,6 @@ fallback_commands () {
 	done
 }
 
-export EDITOR="$(fallback_commands nvim vim vi)"
-
 # homebrew
 export BREW_PREFIX=/opt/homebrew
 if [ -d $BREW_PREFIX ]; then
@@ -104,3 +102,8 @@ for i in $(ls $HOME/.kube/conf.d/* 2>/dev/null); do
 done
 pathmunge "${KREW_ROOT:-$HOME/.krew}/bin"
 
+# MANPAGER, EDITOR
+export EDITOR="$(fallback_commands nvim vim vi)"
+if command_exists bat; then
+	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
