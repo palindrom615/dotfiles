@@ -89,9 +89,8 @@ chjava () {
 		pathmunge "$JAVA_HOME/bin"
 	fi
 }
-chjava 11
-alias chjava=". chjava"
-
+# alias chjava=". chjava"
+chjava 17
 
 # kubernetes
 # add all configs in .kube/conf.d
