@@ -110,5 +110,6 @@ fi
 # miscs
 pathmunge ~/bin
 pathmunge '/Users/user/Library/Application Support/JetBrains/Toolbox/scripts'
-alias wget="curl -O --continue-at -"
-
+if ! command_exists wget; then
+	alias wget="curl -O --continue-at -"
+fi
