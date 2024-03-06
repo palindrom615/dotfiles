@@ -1,6 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-	name = Jang Whemoon
+# Please adapt and uncomment the following lines:
+	name = jang whoemoon
 	email = palindrom615@gmail.com
 [credential]
 	helper = store
@@ -19,9 +20,20 @@
 	precomposeunicode = true
 	autocrlf = input
 	excludesFile = ~/.config/git/ignore
+
 [rerere]
 	enabled = true
 [pull]
 	rebase = true
 [init]
 	defaultBranch = main
+
+{{- if lookPath "smerge" }}
+[mergetool "smerge"]
+	# https://www.sublimemerge.com/docs/command_line
+	cmd = 'smerge mergetool "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"'
+	trustExitCode = true
+[merge]
+	tool = smerge
+{{- end }}
+
