@@ -28,7 +28,11 @@ fallback_commands () {
 }
 
 # homebrew
+{{ if eq .chezmoi.os "darwin" }}
 export BREW_PREFIX=/opt/homebrew
+{{ else if eq .chezmoi.os "linux" }}
+export BREW_PREFIX=/home/linuxbrew/.linuxbrew
+{{ end }}
 if [ -d $BREW_PREFIX ]; then
 	eval "$($BREW_PREFIX/bin/brew shellenv)"
 fi
