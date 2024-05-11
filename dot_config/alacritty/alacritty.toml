@@ -1,0 +1,51 @@
+import = [
+    "~/.config/alacritty/keybindings.toml",
+    "~/.config/alacritty/themes/themes/enfocado_dark.toml",
+]
+live_config_reload = true
+working_directory = "None"
+
+[window]
+dimensions = { columns = 0, lines = 0 }
+position = "None"
+padding = { x = 8, y = 8 }
+dynamic_padding = true
+opacity = 0.75
+blur = false
+startup_mode = "SimpleFullscreen"
+dynamic_title = true
+
+[scrolling]
+history = 100000
+multiplier = 3
+
+[font]
+normal = { family = "Iosevka Term", style = "Regular" }
+size = 16.0
+offset = { x = 0, y = 0 }
+glyph_offset = { x = 0, y = 0 }
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[bell]
+animation = "EaseOutExpo"
+color = "0xffffff"
+duration = 0
+
+[selection]
+save_to_clipboard = false
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+unfocused_hollow = true
+
+[mouse]
+hide_when_typing = false
+bindings = [{ action = "PasteSelection", mouse = "Middle" }]
+
+[debug]
+log_level = "Warn"
+persistent_logging = false
+print_events = false
+render_timer = false
