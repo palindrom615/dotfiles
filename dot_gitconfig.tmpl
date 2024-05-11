@@ -22,7 +22,7 @@
 	excludesFile = ~/.config/git/ignore
 
 [rerere]
-	enabled = true
+	enabled = false
 [pull]
 	rebase = true
 [init]
@@ -31,7 +31,7 @@
 {{- if lookPath "smerge" }}
 [mergetool "smerge"]
 	# https://www.sublimemerge.com/docs/command_line
-	cmd = 'smerge mergetool "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"'
+	cmd = smerge mergetool "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"
 	trustExitCode = true
 [merge]
 	tool = smerge
