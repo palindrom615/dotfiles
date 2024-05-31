@@ -118,3 +118,10 @@ pathmunge '/Users/user/Library/Application Support/JetBrains/Toolbox/scripts'
 if ! command_exists wget; then
 	alias wget="curl -O --continue-at -"
 fi
+
+function del() {
+	trash $*
+}
+
+alias rm="echo Use 'del', or the full path i.e. '/bin/rm'"
+
