@@ -104,6 +104,12 @@ chjava () {
 # alias chjava=". chjava"
 chjava 17
 
+# containerd
+if command_exists colima; then
+	alias nerdctl="colima nerdctl"
+fi
+alias n="nerdctl"
+
 # kubernetes
 # add all configs in .kube/conf.d
 export KUBECONFIG="$HOME/.kube/config"
