@@ -125,16 +125,23 @@ if command_exists bat; then
 	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
 
-# miscs
-pathmunge ~/.local/bin
-pathmunge '/Users/user/Library/Application Support/JetBrains/Toolbox/scripts'
-if ! command_exists wget; then
-	alias wget="curl -O --continue-at -"
-fi
+# Jetbrains toolbox
+{{ if eq .chezmoi.os "darwin" -}}
+pathmunge "$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
+{{ else if eq .chezmoi.os "linux" -}}
+pathmunge "$HOME/.local/share/JetBrains/Toolbox/scripts"
+{{- end }}
 
+# use trash instead of rm
 function del() {
 	trash $*
 }
 
 alias rm="echo Use 'del', or the full path i.e. '/bin/rm'"
+
+# miscs
+pathmunge ~/.local/bin
+if ! command_exists wget; then
+	alias wget="curl -O --continue-at -"
+fi
 
