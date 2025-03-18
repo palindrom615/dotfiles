@@ -95,7 +95,7 @@ fi
 # Add function to switch between java versions without source ~/.profile
 # Usage: chjava 11
 chjava () {
-	if command_exists /usr/libexec/java_home; then
+	if command_exists /usr/libexec/java_home && /usr/libexec/java_home >/dev/null 2>&1 ; then
 		export JAVA_VERSION=$1
 		export JAVA_HOME="$(/usr/libexec/java_home)"
 		pathmunge "$JAVA_HOME/bin"
