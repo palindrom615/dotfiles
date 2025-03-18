@@ -132,6 +132,11 @@ pathmunge "$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 pathmunge "$HOME/.local/share/JetBrains/Toolbox/scripts"
 {{- end }}
 
+# Sublime merge
+{{ if eq .chezmoi.os "darwin" }}
+pathmunge /Applications/Sublime\ Merge.app/Contents/SharedSupport/bin
+{{ end }}
+
 # use trash instead of rm
 function del() {
 	trash $*
@@ -144,4 +149,3 @@ pathmunge ~/.local/bin
 if ! command_exists wget; then
 	alias wget="curl -O --continue-at -"
 fi
-
