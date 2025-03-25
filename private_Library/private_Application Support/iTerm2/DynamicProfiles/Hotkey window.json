@@ -359,6 +359,7 @@
         "Red Component": "0.7098"
       },
       "Send Code When Idle": false,
+      "Set Local Environment Vars" : 0,
       "Shortcut": "",
       "Silence Bell": false,
       "Space": 0,
