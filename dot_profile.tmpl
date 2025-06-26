@@ -46,6 +46,13 @@ fi
 # deno
 pathmunge $HOME/.deno/bin
 
+# bun
+if [ -f $HOME/.bun ]; then
+	export BUN_INSTALL="$HOME/.bun"
+	pathmunge $BUN_INSTALL/bin
+	source "$BUN_INSTALL/_bun"
+fi
+
 # android
 if [ -d "$HOME/Library/Android/sdk" ]; then
 	export ANDROID_HOME=$HOME/Library/Android/sdk
