@@ -1,16 +1,16 @@
 # Number of CPUs to be allocated to the virtual machine.
 # Default: 2
-cpu: 2
+cpu: 4
 
 # Size of the disk in GiB to be allocated to the virtual machine.
 # NOTE: value can only be increased after virtual machine has been created.
 #
-# Default: 60
-disk: 60
+# Default: 100
+disk: 100
 
 # Size of the memory in GiB to be allocated to the virtual machine.
 # Default: 2
-memory: 4
+memory: 16
 
 # Architecture of the virtual machine (x86_64, aarch64, host).
 #
@@ -22,7 +22,7 @@ arch: host
 #
 # NOTE: value cannot be changed after virtual machine is created.
 # Default: docker
-runtime: containerd
+runtime: docker
 
 # Set custom hostname for the virtual machine.
 # Default: colima
@@ -38,7 +38,7 @@ kubernetes:
   # Kubernetes version to use.
   # This needs to exactly match a k3s version https://github.com/k3s-io/k3s/releases
   # Default: latest stable release
-  version: v1.30.0+k3s1
+  version: v1.33.1+k3s1
   
   # Additional args to pass to k3s https://docs.k3s.io/cli/server
   # Default: traefik is disabled
@@ -75,8 +75,7 @@ network:
   # EXAMPLE
   # dnsHosts:
   #   example.com: 1.2.3.4
-  dnsHosts:
-    host.docker.internal: host.lima.internal
+  dnsHosts: {}
   
   # Replicate host IP addresses in the VM. This enables port forwarding to specific
   # host IP addresses.
@@ -141,7 +140,7 @@ nestedVirtualization: false
 #
 # NOTE: value cannot be changed after virtual machine is created.
 # Default: virtiofs (for vz), sshfs (for qemu)
-mountType: virtiofs
+#mountType: virtiofs
 
 # Propagate inotify file events to the VM.
 # NOTE: this is experimental.
@@ -197,6 +196,14 @@ sshPort: 0
 # Colima default behaviour: $HOME and /tmp/colima are mounted as writable.
 # Default: []
 mounts: []
+
+# Specify a custom disk image for the virtual machine.
+# When not specified, Colima downloads an appropriate disk image from Github at
+# https://github.com/abiosoft/colima-core/releases.
+# The file path to a custom disk image can be specified to override the behaviour.
+#
+# Default: ""
+diskImage: ""
 
 # Environment variables for the virtual machine.
 #
