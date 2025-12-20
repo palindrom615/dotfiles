@@ -82,12 +82,8 @@ fi
 pathmunge /var/lib/snapd/snap/bin
 
 # node
-if command_exists npm; then
-	pathmunge "$(npm get prefix)/bin"
-fi
-if command_exists yarn; then
-	pathmunge "$(yarn config get prefix)/bin"
-fi
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # python
 if command_exists python3; then
