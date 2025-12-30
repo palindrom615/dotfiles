@@ -41,13 +41,18 @@ if [ -d $BREW_PREFIX ]; then
 fi
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+# asdf
+pathmunge "${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
+
 # rust
 if [ -f $HOME/.cargo/env ]; then
 	source "$HOME/.cargo/env"
 fi
 
 # deno
-pathmunge $HOME/.deno/bin
+if [ -f $HOME/.deno/env ]; then
+	. "$HOME/.deno/env"
+fi
 
 # bun
 if [ -f $HOME/.bun ]; then
@@ -110,8 +115,10 @@ chjava () {
 # alias chjava=". chjava"
 chjava 17
 
-# containerd
+# colima
 if command_exists colima; then
+	export COLIMA_HOME="$HOME/.colima"
+	export DOCKER_HOST="unix://${COLIMA_HOME}/default/docker.sock"
 	alias nerdctl="colima nerdctl"
 fi
 alias n="nerdctl"
