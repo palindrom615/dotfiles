@@ -110,7 +110,9 @@ forwardAgent: false
 #
 # Colima default behaviour: buildkit enabled
 # Default: {}
-docker: {}
+docker:
+  features:
+    buildkit: true
 
 # Virtual Machine type (qemu, vz)
 # NOTE: this is macOS 13 only. For Linux and macOS <13.0, qemu is always used.
