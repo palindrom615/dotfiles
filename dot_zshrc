@@ -15,8 +15,12 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
-zinit light-mode for \
-	scmbreeze/scm_breeze
+
+# enable scm_breeze only when shell is interactive
+if [[ $- == *i* ]]; then
+    zinit light-mode for \
+    	scmbreeze/scm_breeze
+fi
 
 ### End of Zinit's installer chunk
 zinit wait lucid light-mode for \
@@ -42,7 +46,7 @@ function fallback_command {
 			echo "$com"
 			break
 		fi;
-	done	
+	done
 }
 
 alias l="$(fallback_command exa ls)"
@@ -61,4 +65,3 @@ export WORDCHARS='.-'
 if type starship > /dev/null; then
 	eval "$(starship init zsh)"
 fi
-
