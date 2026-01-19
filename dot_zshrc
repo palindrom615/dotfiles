@@ -35,6 +35,7 @@ zinit wait lucid for \
 	OMZP::kubectl \
 	OMZP::fzf
 zinit light marlonrichert/zsh-autocomplete
+zinit light paulirish/git-open
 
 KEYTIMEOUT=1
 bindkey -e
