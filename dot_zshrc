@@ -16,10 +16,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 
-# enable scm_breeze only when shell is interactive
+# enable scmpuff only when shell is interactive
 if [[ $- == *i* ]]; then
-    zinit light-mode for \
-    	scmbreeze/scm_breeze
+	if type scmpuff > /dev/null; then
+		eval "$(scmpuff init -s)"
+	fi
 fi
 
 ### End of Zinit's installer chunk
