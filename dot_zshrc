@@ -29,10 +29,12 @@ zinit wait lucid light-mode for \
 		zdharma-continuum/fast-syntax-highlighting \
 	atload"_zsh_autosuggest_start" \
 		zsh-users/zsh-autosuggestions
+
 zinit wait lucid for \
 	OMZP::docker-compose \
 	OMZP::kubectl \
 	OMZP::fzf
+zinit light marlonrichert/zsh-autocomplete
 
 KEYTIMEOUT=1
 bindkey -e
