@@ -27,8 +27,7 @@ zinit wait lucid light-mode for \
 	atinit"zicompinit; zicdreplay" \
 		zdharma-continuum/fast-syntax-highlighting \
 	atload"_zsh_autosuggest_start" \
-		zsh-users/zsh-autosuggestions \
-		agkozak/zsh-z
+		zsh-users/zsh-autosuggestions
 zinit wait lucid for \
 	OMZP::docker-compose \
 	OMZP::kubectl \
@@ -65,3 +64,8 @@ export WORDCHARS='.-'
 if type starship > /dev/null; then
 	eval "$(starship init zsh)"
 fi
+
+if type zoxide > /dev/null; then
+	eval "$(zoxide init zsh)"
+fi
+
