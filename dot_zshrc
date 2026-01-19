@@ -53,10 +53,6 @@ alias l="$(fallback_command exa ls)"
 alias v="$(fallback_command nvim vim vi)"
 alias d="docker"
 
-if command -v thefuck &> /dev/null; then
-	eval "$(thefuck --alias)"
-fi
-
 autoload -U select-word-style
 select-word-style bash
 
